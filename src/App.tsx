@@ -1,18 +1,18 @@
+import { Input } from '#ui/input/input';
+import { SignIn } from './pages/sign-in';
 import './App.css';
-
-import { Menu } from '#ui/menu/menu';
-import { TestForm } from './features/test-form/test-form';
+import { HeaderMenu } from './features/header-menu-sign-in/header-menu-sign-in';
+import { SignUp } from './pages/sign-up';
+import { Success } from './pages/success';
+import { SelectedPost } from './pages/selected-post';
 
 function App() {
   return (
-    <div>
-      <Menu
-        items={[
-          { id: '1', title: 'item 1' },
-          { id: '2', title: 'item 2' },
-        ]}
-      />
-      <TestForm />
+    <div className="App">
+      {/* <SignUp></SignUp> */}
+      {/* <SignIn></SignIn> */}
+      {/* <Success></Success> */}
+      <SelectedPost></SelectedPost>
     </div>
   );
 }
