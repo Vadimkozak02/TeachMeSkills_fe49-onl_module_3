@@ -1,13 +1,13 @@
 .App {
   --background-primary-color: #eeeeeeee;
   --text-primary-color: black;
-  --text-secondary-color: grey;
+  --text-secondary-color: rgb(96, 96, 96);
 
 
   &.dark {
     --background-primary-color: black;
     --text-primary-color: white;
-    --text-secondary-color: grey;
+    --text-secondary-color: rgb(96, 96, 96);
   }
 }
 

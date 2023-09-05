@@ -7,7 +7,8 @@ import Dislike from '../cards/card-img/dislike.svg';
 import DislikeBlack from '../cards/card-img/dislikeBlack.svg';
 import Bookmark from '../cards/card-img/bookmark.svg';
 import BookmarkSolid from '../cards/card-img/bookmark-solid.svg';
-import MoreBtn from '../cards/card-img/ellipsis.svg';
+import LeftArrow from './arrow-img/arrow-left.svg';
+import RightArrow from './arrow-img/arrow-right.svg';
 
 type Props = {
   id?: React.ReactNode;
@@ -46,7 +47,6 @@ export const SelectedPostTemplate: React.FC<Props> = ({
                 <LikeCount>{activeLike ? '11' : '10'}</LikeCount>
               </LikeWrapper>
             </FooterLike>
-
             <FooterDislike onClick={() => setActiveDislike(!activeDislike)}>
               <DislikeWrapper>
                 <DislikeImg
@@ -67,6 +67,43 @@ export const SelectedPostTemplate: React.FC<Props> = ({
             </FooterBookmark>
           </FooterMoreWrapper>
         </CardFooterImg>
+
+        <CardArrows>
+          <CardPrewArrow>
+            <CardPrewWrapper>
+              <CardPrewBtn>
+                <img src={LeftArrow}></img>
+              </CardPrewBtn>
+              <CardPrewText>
+                <CardPrewTitle>Prew</CardPrewTitle>
+                <CardPrewDescription>
+                  Lorem ipsum dolor sit amet
+                </CardPrewDescription>
+              </CardPrewText>
+            </CardPrewWrapper>
+          </CardPrewArrow>
+
+          <CardNextArrow>
+            <CardNextWrapper>
+              <CardNextText>
+                <CardNextTitle>Next</CardNextTitle>
+                <CardNextDescription>
+                  Maiores recusandae adipisci deserunt eos quis
+                </CardNextDescription>
+              </CardNextText>
+              <CardNextBtn>
+                <img src={RightArrow}></img>
+              </CardNextBtn>
+            </CardNextWrapper>
+          </CardNextArrow>
+        </CardArrows>
+
+        <FooterYear>
+          <FooterTextWrapper>
+            <Year>{new Date().getFullYear()}</Year>
+            <Rights>All rights reserved</Rights>
+          </FooterTextWrapper>
+        </FooterYear>
       </CardWrapper>
     </SelectedPostWrapper>
   );
@@ -101,6 +138,7 @@ const CardTitle = styled.h1`
 
 const CardText = styled.div`
   color: var(--text-secondary-color);
+  margin-bottom: 30px;
 `;
 
 const CardImgWrapper = styled.div`
@@ -117,8 +155,8 @@ const CardFooterImg = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
   border-bottom: 1px solid #b4b4b477;
 `;
 
@@ -151,6 +189,7 @@ const LikeImg = styled.img`
 
 const LikeCount = styled.div`
   font-size: 14px;
+  color: var(--text-secondary-color);
 `;
 
 const DislikeWrapper = styled.div`
@@ -178,6 +217,7 @@ const FooterDislike = styled.button`
 
 const DislikeCount = styled.div`
   font-size: 14px;
+  color: var(--text-secondary-color);
 `;
 
 const FooterMoreWrapper = styled.div`
@@ -205,3 +245,62 @@ const BookmarkImg = styled.img`
 const BookmarkText = styled.p`
   color: var(--text-secondary-color);
 `;
+
+const CardArrows = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+`;
+const CardPrewArrow = styled.div``;
+const CardPrewBtn = styled.button`
+  width: 25px;
+  background-color: lightgrey;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+`;
+const CardPrewWrapper = styled.div`
+  display: flex;
+`;
+const CardPrewText = styled.div``;
+const CardPrewTitle = styled.div``;
+const CardPrewDescription = styled.div`
+  color: var(--text-secondary-color);
+`;
+
+const CardNextArrow = styled.div``;
+const CardNextBtn = styled.button`
+  width: 25px;
+  background-color: lightgrey;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+`;
+const CardNextWrapper = styled.div`
+  display: flex;
+`;
+const CardNextText = styled.div``;
+const CardNextTitle = styled.div`
+  text-align: end;
+`;
+const CardNextDescription = styled.div`
+  color: var(--text-secondary-color);
+`;
+
+const FooterYear = styled.footer`
+  width: 100%;
+  height: 50px;
+  color: var(--text-secondary-color);
+  border-top: 1px solid #b4b4b477;
+  padding-top: 10px;
+`;
+
+const FooterTextWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Year = styled.div``;
+
+const Rights = styled.div``;

@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 type Props = {
   header?: React.ReactNode;
-  backLink: React.ReactNode;
-  title: React.ReactNode;
+  backLink?: React.ReactNode;
+  title?: React.ReactNode;
   body: React.ReactNode;
   children?: never;
 };

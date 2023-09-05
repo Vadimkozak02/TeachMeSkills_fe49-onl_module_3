@@ -1,5 +1,6 @@
 import { MenuSite } from '#ui/menu/menu-site';
 import { SelectedPostTemplate } from '#ui/templates/selected-post-template';
+import styled from 'styled-components';
 import astronaut from '../ui/cards/card-img/astronaut_.jpg';
 
 const BigCardItem = [
