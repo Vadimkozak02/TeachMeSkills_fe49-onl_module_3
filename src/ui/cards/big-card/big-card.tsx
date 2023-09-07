@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { useState } from "react";
-import LikeWhite from "../card-img/likeSvg.svg";
-import LikeBlack from "../card-img/likeSvgBlack.svg";
-import Dislike from "../card-img/dislike.svg";
-import DislikeBlack from "../card-img/dislikeBlack.svg";
-import Bookmark from "../card-img/bookmark.svg";
-import BookmarkSolid from "../card-img/bookmark-solid.svg";
-import MoreBtn from "../card-img/ellipsis.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { useState } from 'react';
+import LikeWhite from '../card-img/likeSvg.svg';
+import LikeBlack from '../card-img/likeSvgBlack.svg';
+import Dislike from '../card-img/dislike.svg';
+import DislikeBlack from '../card-img/dislikeBlack.svg';
+import Bookmark from '../card-img/bookmark.svg';
+import BookmarkSolid from '../card-img/bookmark-solid.svg';
+import MoreBtn from '../card-img/ellipsis.svg';
 
 type Props = {
   id?: React.ReactNode;
@@ -39,7 +39,7 @@ export const BigCard: React.FC<Props> = ({ image, text, date, title }) => {
           <FooterLike onClick={() => setActiveLike(!activeLike)}>
             <LikeWrapper>
               <LikeImg src={activeLike ? LikeBlack : LikeWhite} alt="like" />
-              <LikeCount>{activeLike ? "11" : "10"}</LikeCount>
+              <LikeCount>{activeLike ? '11' : '10'}</LikeCount>
             </LikeWrapper>
           </FooterLike>
           <FooterDislike onClick={() => setActiveDislike(!activeDislike)}>
@@ -48,7 +48,7 @@ export const BigCard: React.FC<Props> = ({ image, text, date, title }) => {
                 src={activeDislike ? DislikeBlack : Dislike}
                 alt="dislike"
               />
-              <DislikeCount>{activeDislike ? "6" : "5"}</DislikeCount>
+              <DislikeCount>{activeDislike ? '6' : '5'}</DislikeCount>
             </DislikeWrapper>
           </FooterDislike>
         </FooterLikeWrapper>
@@ -70,7 +70,7 @@ export const BigCard: React.FC<Props> = ({ image, text, date, title }) => {
 
 const BigCardWrapper = styled.div`
   width: 600px;
-  background-color: lightgrey;
+  background-color: var(--background-primary-color);
   padding: 10px;
 `;
 
@@ -131,7 +131,7 @@ const FooterLike = styled.button`
   border: none;
   cursor: pointer;
   width: 30px;
-  background-color: lightgrey;
+  background-color: var(--background-primary-color);
 `;
 
 const LikeWrapper = styled.div`
@@ -160,7 +160,7 @@ const DislikeImg = styled.img`
 const FooterDislike = styled.button`
   display: flex;
   width: 30px;
-  background-color: lightgrey;
+  background-color: var(--background-primary-color);
   border: none;
   cursor: pointer;
 
@@ -181,7 +181,7 @@ const FooterMoreWrapper = styled.div`
 
 const FooterBookmark = styled.button`
   cursor: pointer;
-  background-color: lightgrey;
+  background-color: var(--background-primary-color);
   width: 30px;
   border: none;
 `;
@@ -192,7 +192,7 @@ const BookmarkImg = styled.img`
 
 const FooterMoreBtn = styled.button`
   cursor: pointer;
-  background-color: lightgrey;
+  background-color: var(--background-primary-color);
   width: 30px;
   border: none;
 `;

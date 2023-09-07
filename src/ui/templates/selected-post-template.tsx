@@ -69,19 +69,19 @@ export const SelectedPostTemplate: React.FC<Props> = ({
         </CardFooterImg>
 
         <CardArrows>
-          <CardPrewArrow>
-            <CardPrewWrapper>
-              <CardPrewBtn>
+          <CardPrevArrow>
+            <CardPrevWrapper>
+              <CardPrevBtn>
                 <img src={LeftArrow}></img>
-              </CardPrewBtn>
-              <CardPrewText>
-                <CardPrewTitle>Prew</CardPrewTitle>
-                <CardPrewDescription>
+              </CardPrevBtn>
+              <CardPrevText>
+                <CardPrevTitle>Prev</CardPrevTitle>
+                <CardPrevDescription>
                   Lorem ipsum dolor sit amet
-                </CardPrewDescription>
-              </CardPrewText>
-            </CardPrewWrapper>
-          </CardPrewArrow>
+                </CardPrevDescription>
+              </CardPrevText>
+            </CardPrevWrapper>
+          </CardPrevArrow>
 
           <CardNextArrow>
             <CardNextWrapper>
@@ -252,20 +252,20 @@ const CardArrows = styled.div`
   justify-content: space-between;
   margin-bottom: 50px;
 `;
-const CardPrewArrow = styled.div``;
-const CardPrewBtn = styled.button`
+const CardPrevArrow = styled.div``;
+const CardPrevBtn = styled.button`
   width: 25px;
   background-color: lightgrey;
   border: none;
   cursor: pointer;
   margin-right: 10px;
 `;
-const CardPrewWrapper = styled.div`
+const CardPrevWrapper = styled.div`
   display: flex;
 `;
-const CardPrewText = styled.div``;
-const CardPrewTitle = styled.div``;
-const CardPrewDescription = styled.div`
+const CardPrevText = styled.div``;
+const CardPrevTitle = styled.div``;
+const CardPrevDescription = styled.div`
   color: var(--text-secondary-color);
 `;
 
