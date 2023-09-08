@@ -57,4 +57,5 @@ const SignUpWrapper = styled.div`
   padding: 30px;
   border: 1px solid #b3b3b3;
   border-radius: 10px;
+  margin-bottom: 50px;
 `;

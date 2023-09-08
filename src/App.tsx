@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App">
       <SignUp></SignUp>
-      <SignIn></SignIn>
-      <Success></Success>
-      <SelectedPost></SelectedPost>
-      <Blog></Blog>
+      {/* <SignIn></SignIn> */}
+      {/* <Success></Success> */}
+      {/* <SelectedPost></SelectedPost> */}
+      {/* <Blog></Blog> */}
     </div>
   );
 }

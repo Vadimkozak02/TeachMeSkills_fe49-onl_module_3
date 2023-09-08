@@ -1,15 +1,18 @@
 import { MainTemplate } from '#ui/templates/main-template';
 import { Title } from '#ui/title/title';
 import { BackLink } from '../features/back-link/back-link';
+import { HeaderMenu } from '../features/header-menu-sign-in/header-menu-sign-in';
 import { SignUpForm } from '../features/sign-up-form/sign-up-form';
 
 export const SignUp: React.FC = () => {
   return (
-    <MainTemplate
-      header={<header style={{ width: '100%', height: '40px' }}>Header</header>}
-      backLink={<BackLink />}
-      title={<Title>Sign Up</Title>}
-      body={<SignUpForm></SignUpForm>}
-    />
+    <>
+      <HeaderMenu></HeaderMenu>
+      <MainTemplate
+        backLink={<BackLink />}
+        title={<Title>Sign Up</Title>}
+        body={<SignUpForm></SignUpForm>}
+      />
+    </>
   );
 };
