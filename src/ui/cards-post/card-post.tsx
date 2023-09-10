@@ -23,12 +23,6 @@ export const CardPost: React.FC = () => {
     <CardPostW>
       <PostWrapper>
         <PostLeft>
-          {/* <BigCard
-          image={<img src={astronaut} alt="astronaut"></img>}
-          text={<div>{BigCardItem.map(({ text }) => text)}</div>}
-          date={<div>{BigCardItem.map(({ date }) => date)}</div>}
-          title={<div>{BigCardItem.map(({ title }) => title)}</div>}
-        ></BigCard> */}
           <LeftBottomWrapper>
             <LeftTop>
               <AverageCard

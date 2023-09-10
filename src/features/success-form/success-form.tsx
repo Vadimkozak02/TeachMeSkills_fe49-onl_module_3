@@ -24,4 +24,5 @@ const SuccessText = styled.div`
   margin-bottom: 30px;
   width: 300px;
   font-size: 16px;
+  color: var(--text-primary-color);
 `;

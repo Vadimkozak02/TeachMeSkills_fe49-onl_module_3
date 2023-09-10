@@ -18,7 +18,7 @@ export const Blog: React.FC = () => {
         <BlogOtherPages>
           <BlogLeftArrow>
             <LefrArrowBtn>
-              <img src={LeftArrow}></img>
+              <img src={LeftArrow} alt="prev"></img>
               <LeftArrowText>Prev</LeftArrowText>
             </LefrArrowBtn>
           </BlogLeftArrow>
@@ -42,7 +42,7 @@ export const Blog: React.FC = () => {
           <BlogRightArrow>
             <RightArrowBtn>
               <RightArrowText>Next</RightArrowText>
-              <img src={RightArrow}></img>
+              <img src={RightArrow} alt="next"></img>
             </RightArrowBtn>
           </BlogRightArrow>
         </BlogOtherPages>
@@ -69,6 +69,7 @@ const BlogWrapper = styled.div`
 `;
 const BlogTitle = styled.h1`
   margin: 50px 0 0;
+  color: var(--text-primary-color);
 `;
 const BlogTabs = styled.div`
   margin-bottom: 20px;
@@ -92,7 +93,7 @@ const BlogLeftArrow = styled.div`
 const LefrArrowBtn = styled.button`
   cursor: pointer;
   border: none;
-  background-color: var(--background-primary-color);
+  background-color: var(--array-primary-color);
   display: flex;
   align-items: center;
 `;
@@ -108,18 +109,23 @@ const OtherPage = styled.ul`
 const PageOne = styled.li``;
 const PageOneLink = styled.a`
   text-decoration: none;
+  color: var(--text-primary-color);
 `;
 const PageTwoLink = styled.a`
   text-decoration: none;
+  color: var(--text-primary-color);
 `;
 const PageThreeLink = styled.a`
   text-decoration: none;
+  color: var(--text-primary-color);
 `;
 const PageFourLink = styled.a`
   text-decoration: none;
+  color: var(--text-primary-color);
 `;
 const PageEightLink = styled.a`
   text-decoration: none;
+  color: var(--text-primary-color);
 `;
 const PageTwo = styled.li``;
 const PageThree = styled.li``;
@@ -139,7 +145,7 @@ const BlogRightArrow = styled.div`
 const RightArrowBtn = styled.button`
   cursor: pointer;
   border: none;
-  background-color: var(--background-primary-color);
+  background-color: var(--array-primary-color);
   display: flex;
   align-items: center;
 `;

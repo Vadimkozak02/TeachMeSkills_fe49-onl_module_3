@@ -16,7 +16,7 @@ const BigCardItem = [
 
 export const SelectedPost: React.FC = () => {
   return (
-    <>
+    <SelectedPostWrapper>
       <MenuSite></MenuSite>
       <SelectedPostTemplate
         image={<img src={astronaut} alt="astronaut"></img>}
@@ -24,6 +24,10 @@ export const SelectedPost: React.FC = () => {
         date={<div>{BigCardItem.map(({ date }) => date)}</div>}
         title={<div>{BigCardItem.map(({ title }) => title)}</div>}
       ></SelectedPostTemplate>
-    </>
+    </SelectedPostWrapper>
   );
 };
+
+const SelectedPostWrapper = styled.div`
+  background-color: var(--background-primary-color);
+`;

@@ -19,7 +19,7 @@ type Props = {
   author?: React.ReactNode;
 };
 
-export const SmallCard: React.FC<Props> = ({ image, date, title }) => {
+export const RersultCard: React.FC<Props> = ({ image, date, title }) => {
   const [activeLike, setActiveLike] = useState(false);
   const [activeDislike, setActiveDislike] = useState(false);
   const [activeBookmark, setActiveBookmark] = useState(false);
@@ -27,11 +27,11 @@ export const SmallCard: React.FC<Props> = ({ image, date, title }) => {
   return (
     <BigCardWrapper>
       <CardTopWrapper>
+        <CardImgWrapper>{image}</CardImgWrapper>
         <CardTextWrapper>
           <CardDate>{date}</CardDate>
           <CardTitle>{title}</CardTitle>
         </CardTextWrapper>
-        <CardImgWrapper>{image}</CardImgWrapper>
       </CardTopWrapper>
       <CardFooterImg>
         <FooterLikeWrapper>
@@ -69,9 +69,9 @@ export const SmallCard: React.FC<Props> = ({ image, date, title }) => {
 };
 
 const BigCardWrapper = styled.div`
-  width: 280px;
   background-color: var(--background-primary-color);
   padding: 10px;
+  margin: auto;
 `;
 
 const CardTopWrapper = styled.div`
@@ -84,7 +84,7 @@ const CardTextWrapper = styled.div``;
 const CardDate = styled.div`
   font-size: 14px;
   color: var(--text-secondary-color);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 const CardTitle = styled.h1`
@@ -93,6 +93,7 @@ const CardTitle = styled.h1`
 `;
 
 const CardImgWrapper = styled.div`
+  margin-right: 20px;
   img {
     width: 80px;
   }

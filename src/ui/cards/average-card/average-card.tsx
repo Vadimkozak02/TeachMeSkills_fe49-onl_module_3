@@ -86,12 +86,12 @@ const CardTextWrapper = styled.div`
 
 const CardDate = styled.div`
   font-size: 14px;
-  color: grey;
+  color: var(--text-secondary-color);
   margin-bottom: 20px;
 `;
 
 const CardTitle = styled.h1`
-  color: black;
+  color: var(--text-primary-color);
   font-size: 14px;
 `;
 
@@ -132,6 +132,7 @@ const FooterLike = styled.button`
 const LikeWrapper = styled.div`
   display: flex;
   align-items: center;
+  background-color: var(--array-primary-color);
 `;
 
 const LikeImg = styled.img`
@@ -146,6 +147,7 @@ const LikeCount = styled.div`
 const DislikeWrapper = styled.div`
   display: flex;
   align-items: center;
+  background-color: var(--array-primary-color);
 `;
 
 const DislikeImg = styled.img`
@@ -176,9 +178,9 @@ const FooterMoreWrapper = styled.div`
 
 const FooterBookmark = styled.button`
   cursor: pointer;
-  background-color: var(--background-primary-color);
   width: 30px;
   border: none;
+  background-color: var(--array-primary-color);
 `;
 
 const BookmarkImg = styled.img`
@@ -187,7 +189,7 @@ const BookmarkImg = styled.img`
 
 const FooterMoreBtn = styled.button`
   cursor: pointer;
-  background-color: var(--background-primary-color);
+  background-color: var(--array-primary-color);
   width: 30px;
   border: none;
 `;
