@@ -1,20 +1,8 @@
-import './App.css';
-import { SignIn } from './pages/sign-in';
-import { SignUp } from './pages/sign-up';
-import { Success } from './pages/success';
-import { SelectedPost } from './pages/selected-post';
-import { Blog } from '#ui/blog/blog';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Root from './Root';
 
-function App() {
-  return (
-    <div className="App">
-      <SignUp></SignUp>
-      {/* <SignIn></SignIn> */}
-      {/* <Success></Success> */}
-      {/* <SelectedPost></SelectedPost> */}
-      {/* <Blog></Blog> */}
-    </div>
-  );
+const router = createBrowserRouter([{ path: '*', Component: Root }]);
+
+export default function Add() {
+  return <RouterProvider router={router}></RouterProvider>;
 }
-
-export default App;

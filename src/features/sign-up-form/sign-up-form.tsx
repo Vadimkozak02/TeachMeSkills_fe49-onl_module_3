@@ -2,9 +2,13 @@ import { Input } from '#ui/input/input';
 import { useState } from 'react';
 import { Button } from '#ui/button';
 import styled from 'styled-components';
+import { setName } from './sign-up-form.slice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 
 export const SignUpForm: React.FC = () => {
-  const [name, setName] = useState('');
+  const dispatch = useAppDispatch();
+  const name = useAppSelector(({ signUpForm }) => signUpForm.name);
+
   const [email, setEmail] = useState('');
 
   const [password, setPassword] = useState('');
@@ -19,7 +23,9 @@ export const SignUpForm: React.FC = () => {
           type="text"
           labelText="Name"
           value={name}
-          onChange={({ currentTarget }) => setName(currentTarget.value)}
+          onChange={({ currentTarget }) =>
+            dispatch(setName(currentTarget.value))
+          }
         />
         <Input
           placeholder="Your Email"

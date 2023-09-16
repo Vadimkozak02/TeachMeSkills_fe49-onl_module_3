@@ -1,0 +1,57 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+type Payload = {
+    postId: number;
+}
+
+type Rating = {
+    likes:number, 
+    dislikes:number, 
+    userChoice: 'like' | 'dislike' | null
+}
+
+const likeDislike = createSlice({
+    name: 'likeDislike',
+    initialState: {
+        1: {
+            likes: 10,
+            dislikes: 5,
+            userChoice: 'like',
+        },
+        2: {
+            likes: 7,
+            dislikes: 2,
+            userChoice: 'dislike',
+        }, 
+        3: {
+            likes: 17,
+            dislikes: 5,
+            userChoice: null,
+        }
+    } as Record<number, Rating>,
+    reducers: {
+        setActiveLike(state, action: {payload: Payload}){
+            const data = state[action.payload.postId];
+            if (!data) return;
+            data.likes++
+            if (data.userChoice === 'dislike') {
+                data.dislikes--
+            }
+            data.userChoice = 'like';
+        },
+        setActiveDislike(state, action: {payload: Payload}){
+            const data = state[action.payload.postId];
+            if (!data) return;
+            data.dislikes++
+            if (data.userChoice === 'like') {
+                data.likes--
+            }
+            data.userChoice = 'dislike';
+        }
+    }
+});
+
+export const {
+    actions: {setActiveLike, setActiveDislike}, 
+    reducer: likeDislikeReducer, 
+} = likeDislike;

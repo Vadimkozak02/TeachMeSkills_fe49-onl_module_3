@@ -1,7 +1,8 @@
 import { MenuSite } from '#ui/menu/menu-site';
 import styled from 'styled-components';
 import { Tabs } from '../../features/tabs/Tabs';
-import { CardPost } from '#ui/cards-post/card-post';
+import { CardPost } from '../cards-post/card-post';
+// './cards-post/card-post';
 import LeftArrow from '../templates/arrow-img/arrow-left.svg';
 import RightArrow from '../templates/arrow-img/arrow-right.svg';
 
@@ -49,7 +50,7 @@ export const Blog: React.FC = () => {
         <BlogFooter>
           <FooterYear>
             <FooterTextWrapper>
-              <Year>{new Date().getFullYear()}</Year>
+              <Year>©2022 Blogfolio</Year>
               <Rights>All rights reserved</Rights>
             </FooterTextWrapper>
           </FooterYear>
@@ -64,7 +65,7 @@ const BlogBg = styled.div`
 `;
 
 const BlogWrapper = styled.div`
-  width: 930px;
+  width: 1120px;
   margin: auto;
 `;
 const BlogTitle = styled.h1`

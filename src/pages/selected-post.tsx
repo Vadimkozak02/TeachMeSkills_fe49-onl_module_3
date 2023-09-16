@@ -2,6 +2,9 @@ import { MenuSite } from '#ui/menu/menu-site';
 import { SelectedPostTemplate } from '#ui/templates/selected-post-template';
 import styled from 'styled-components';
 import astronaut from '../ui/cards/card-img/astronaut_.jpg';
+import { Navigate, useParams } from 'react-router-dom';
+import { mokieApi } from '../mokie.api';
+import { LikeDislike } from '../features/like-dislike/like-dislike';
 
 const BigCardItem = [
   {
@@ -15,14 +18,23 @@ const BigCardItem = [
 ];
 
 export const SelectedPost: React.FC = () => {
+  const { postId } = useParams();
+  const numericPostId = Number(postId);
+  if (!Number.isFinite(numericPostId)) return <Navigate to={'/'} />;
+
+  const selectedPost = mokieApi.find((elem) => elem.id === numericPostId);
+  if (!selectedPost) return <Navigate to={'/'} />;
+
   return (
     <>
       <MenuSite></MenuSite>
       <SelectedPostTemplate
+        id={mokieApi[0].id}
         image={<img src={astronaut} alt="astronaut"></img>}
         text={<div>{BigCardItem.map(({ text }) => text)}</div>}
         date={<div>{BigCardItem.map(({ date }) => date)}</div>}
         title={<div>{BigCardItem.map(({ title }) => title)}</div>}
+        LikeDislike={LikeDislike}
       ></SelectedPostTemplate>
     </>
   );

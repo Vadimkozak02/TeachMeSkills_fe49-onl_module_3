@@ -36,7 +36,7 @@ export const SignInForm: React.FC = () => {
         </Button>
         <SignUpLinkWrapper>
           <SignUpText>Dont' have an account?</SignUpText>
-          <SignUpLink href="#">Sign Up</SignUpLink>
+          <SignUpLink href="/sign-up">Sign Up</SignUpLink>
         </SignUpLinkWrapper>
       </form>
     </SignInWrapper>

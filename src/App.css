@@ -9,6 +9,14 @@
     --text-primary-color: white;
     --text-secondary-color: rgb(96, 96, 96);
   }
+
+  & a {
+    all: unset;
+    color: var(--text-primary-color);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
 }
 
 

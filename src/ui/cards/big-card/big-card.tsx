@@ -1,27 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
-import LikeWhite from '../card-img/likeSvg.svg';
-import LikeBlack from '../card-img/likeSvgBlack.svg';
-import Dislike from '../card-img/dislike.svg';
-import DislikeBlack from '../card-img/dislikeBlack.svg';
 import Bookmark from '../card-img/bookmark.svg';
 import BookmarkSolid from '../card-img/bookmark-solid.svg';
 import MoreBtn from '../card-img/ellipsis.svg';
 
 type Props = {
-  id?: React.ReactNode;
+  id: number;
   image: React.ReactNode;
   text: React.ReactNode;
   date: React.ReactNode;
   lesson_num?: React.ReactNode;
   title: React.ReactNode;
   author?: React.ReactNode;
+  LikeDislike: React.ComponentType<{ postId: number }>;
 };
 
-export const BigCard: React.FC<Props> = ({ image, text, date, title }) => {
-  const [activeLike, setActiveLike] = useState(false);
-  const [activeDislike, setActiveDislike] = useState(false);
+export const BigCard: React.FC<Props> = ({
+  id,
+  image,
+  text,
+  date,
+  title,
+  LikeDislike,
+}) => {
   const [activeBookmark, setActiveBookmark] = useState(false);
 
   return (
@@ -35,23 +37,7 @@ export const BigCard: React.FC<Props> = ({ image, text, date, title }) => {
         <CardImgWrapper>{image}</CardImgWrapper>
       </CardTopWrapper>
       <CardFooterImg>
-        <FooterLikeWrapper>
-          <FooterLike onClick={() => setActiveLike(!activeLike)}>
-            <LikeWrapper>
-              <LikeImg src={activeLike ? LikeBlack : LikeWhite} alt="like" />
-              <LikeCount>{activeLike ? '11' : '10'}</LikeCount>
-            </LikeWrapper>
-          </FooterLike>
-          <FooterDislike onClick={() => setActiveDislike(!activeDislike)}>
-            <DislikeWrapper>
-              <DislikeImg
-                src={activeDislike ? DislikeBlack : Dislike}
-                alt="dislike"
-              />
-              <DislikeCount>{activeDislike ? '6' : '5'}</DislikeCount>
-            </DislikeWrapper>
-          </FooterDislike>
-        </FooterLikeWrapper>
+        <LikeDislike postId={id}></LikeDislike>
         <FooterMoreWrapper>
           <FooterBookmark onClick={() => setActiveBookmark(!activeBookmark)}>
             <BookmarkImg
@@ -69,14 +55,15 @@ export const BigCard: React.FC<Props> = ({ image, text, date, title }) => {
 };
 
 const BigCardWrapper = styled.div`
-  width: 600px;
+  width: 736px;
   background-color: var(--background-primary-color);
-  padding: 10px;
+  /* padding: 10px; */
 `;
 
 const CardTopWrapper = styled.div`
   display: flex;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  margin-bottom: 25px;
 `;
 
 const CardTextWrapper = styled.div`
@@ -91,86 +78,26 @@ const CardDate = styled.div`
 
 const CardTitle = styled.h1`
   color: black;
-  font-size: 28px;
-  margin: 0 0 10px;
+  font-size: 34px;
+  margin: 0 0 25px;
 `;
 
 const CardText = styled.div`
   color: grey;
-  width: 300px;
+  width: 448px;
+  font-size: 17px;
 `;
 
-const CardImgWrapper = styled.div`
-  width: 40%;
-  margin-top: 20px;
-
-  img {
-    width: 240px;
-  }
-`;
+const CardImgWrapper = styled.div``;
 
 const CardFooterImg = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
   border-bottom: 1px solid #b4b4b477;
-`;
-
-const FooterLikeWrapper = styled.div`
-  width: 90px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const FooterLike = styled.button`
-  display: flex;
-  border: none;
-  cursor: pointer;
-  width: 30px;
-  background-color: var(--background-primary-color);
-`;
-
-const LikeWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const LikeImg = styled.img`
-  width: 20px;
-  margin-right: 5px;
-`;
-
-const LikeCount = styled.div`
-  font-size: 14px;
-`;
-
-const DislikeWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const DislikeImg = styled.img`
-  margin-right: 5px;
-`;
-
-const FooterDislike = styled.button`
-  display: flex;
-  width: 30px;
-  background-color: var(--background-primary-color);
-  border: none;
-  cursor: pointer;
-
-  img {
-    width: 20px;
-  }
-`;
-
-const DislikeCount = styled.div`
-  font-size: 14px;
 `;
 
 const FooterMoreWrapper = styled.div`
@@ -182,7 +109,7 @@ const FooterMoreWrapper = styled.div`
 const FooterBookmark = styled.button`
   cursor: pointer;
   background-color: var(--background-primary-color);
-  width: 30px;
+  width: 40px;
   border: none;
 `;
 
@@ -193,7 +120,7 @@ const BookmarkImg = styled.img`
 const FooterMoreBtn = styled.button`
   cursor: pointer;
   background-color: var(--background-primary-color);
-  width: 30px;
+  width: 20px;
   border: none;
 `;
 

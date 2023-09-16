@@ -1,33 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
-import LikeWhite from '../cards/card-img/likeSvg.svg';
-import LikeBlack from '../cards/card-img/likeSvgBlack.svg';
-import Dislike from '../cards/card-img/dislike.svg';
-import DislikeBlack from '../cards/card-img/dislikeBlack.svg';
 import Bookmark from '../cards/card-img/bookmark.svg';
 import BookmarkSolid from '../cards/card-img/bookmark-solid.svg';
 import LeftArrow from './arrow-img/arrow-left.svg';
 import RightArrow from './arrow-img/arrow-right.svg';
+import { LikeDislike } from '../../features/like-dislike/like-dislike';
 
 type Props = {
-  id?: React.ReactNode;
+  id: number;
   image: React.ReactNode;
   text: React.ReactNode;
   date: React.ReactNode;
   lesson_num?: React.ReactNode;
   title: React.ReactNode;
   author?: React.ReactNode;
+  LikeDislike: React.ComponentType<{ postId: number }>;
 };
 
 export const SelectedPostTemplate: React.FC<Props> = ({
+  id,
   image,
   text,
   date,
   title,
 }) => {
-  const [activeLike, setActiveLike] = useState(false);
-  const [activeDislike, setActiveDislike] = useState(false);
   const [activeBookmark, setActiveBookmark] = useState(false);
 
   return (
@@ -40,23 +37,7 @@ export const SelectedPostTemplate: React.FC<Props> = ({
           <CardText>{text}</CardText>
         </CardTopWrapper>
         <CardFooterImg>
-          <FooterLikeWrapper>
-            <FooterLike onClick={() => setActiveLike(!activeLike)}>
-              <LikeWrapper>
-                <LikeImg src={activeLike ? LikeBlack : LikeWhite} alt="like" />
-                <LikeCount>{activeLike ? '11' : '10'}</LikeCount>
-              </LikeWrapper>
-            </FooterLike>
-            <FooterDislike onClick={() => setActiveDislike(!activeDislike)}>
-              <DislikeWrapper>
-                <DislikeImg
-                  src={activeDislike ? DislikeBlack : Dislike}
-                  alt="dislike"
-                />
-                <DislikeCount>{activeDislike ? '6' : '5'}</DislikeCount>
-              </DislikeWrapper>
-            </FooterDislike>
-          </FooterLikeWrapper>
+          <LikeDislike postId={id}></LikeDislike>
           <FooterMoreWrapper>
             <FooterBookmark onClick={() => setActiveBookmark(!activeBookmark)}>
               <BookmarkImg
@@ -158,66 +139,6 @@ const CardFooterImg = styled.div`
   margin-bottom: 50px;
   padding-bottom: 50px;
   border-bottom: 1px solid #b4b4b477;
-`;
-
-const FooterLikeWrapper = styled.div`
-  width: 150px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const FooterLike = styled.button`
-  display: flex;
-  border: none;
-  cursor: pointer;
-  width: 70px;
-  background-color: #b1b1b1;
-  line-height: 40px;
-  padding-left: 12px;
-`;
-
-const LikeWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const LikeImg = styled.img`
-  width: 20px;
-  margin-right: 5px;
-`;
-
-const LikeCount = styled.div`
-  font-size: 14px;
-  color: var(--text-secondary-color);
-`;
-
-const DislikeWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const DislikeImg = styled.img`
-  margin-right: 5px;
-`;
-
-const FooterDislike = styled.button`
-  display: flex;
-  width: 70px;
-  background-color: #b1b1b1;
-  border: none;
-  cursor: pointer;
-  line-height: 40px;
-  padding-left: 15px;
-
-  img {
-    width: 20px;
-  }
-`;
-
-const DislikeCount = styled.div`
-  font-size: 14px;
-  color: var(--text-secondary-color);
 `;
 
 const FooterMoreWrapper = styled.div`
