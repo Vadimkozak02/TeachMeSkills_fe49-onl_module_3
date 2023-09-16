@@ -19,7 +19,7 @@ export const Blog: React.FC = () => {
         <BlogOtherPages>
           <BlogLeftArrow>
             <LefrArrowBtn>
-              <img src={LeftArrow}></img>
+              <img src={LeftArrow} alt="left-arrow"></img>
               <LeftArrowText>Prev</LeftArrowText>
             </LefrArrowBtn>
           </BlogLeftArrow>
@@ -43,7 +43,7 @@ export const Blog: React.FC = () => {
           <BlogRightArrow>
             <RightArrowBtn>
               <RightArrowText>Next</RightArrowText>
-              <img src={RightArrow}></img>
+              <img src={RightArrow} alt="right-arrow"></img>
             </RightArrowBtn>
           </BlogRightArrow>
         </BlogOtherPages>

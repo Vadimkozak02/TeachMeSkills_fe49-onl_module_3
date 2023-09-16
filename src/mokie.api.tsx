@@ -1,7 +1,4 @@
 import { LikeDislike } from './features/like-dislike/like-dislike';
-import astronaut from './ui/cards/card-img/astronautAverage.jpg';
-import averageAstronaut from './ui/cards/card-img/astronaut_.jpg';
-import smallAstronaut from './ui/cards/card-img/astronautSmall.jpg';
 
 import BigImgOne from './ui/image/Big-card-imgOne.png';
 

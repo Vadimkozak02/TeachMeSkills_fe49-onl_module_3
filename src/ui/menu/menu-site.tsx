@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import search from '../../ui/menu/img/white.svg';
 import burgerMenu from '../../ui/menu/img/burger_menu.svg';
 import closeMenu from '../../ui/menu/img/close_white.svg';
-import personLogo from '../../ui/menu/img/person.svg';
 
 let users = [
   {

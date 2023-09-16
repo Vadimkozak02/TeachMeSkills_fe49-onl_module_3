@@ -1,8 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const BackLink: React.FC = () => {
-  return <BackLinkWrapper>Back to home</BackLinkWrapper>;
+  return (
+    <Link to="/posts">
+      <BackLinkWrapper>Back to home</BackLinkWrapper>
+    </Link>
+  );
 };
 
 const BackLinkWrapper = styled.div`

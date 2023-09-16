@@ -53,7 +53,7 @@ export const SelectedPostTemplate: React.FC<Props> = ({
           <CardPrevArrow>
             <CardPrevWrapper>
               <CardPrevBtn>
-                <img src={LeftArrow}></img>
+                <img src={LeftArrow} alt="left-arrow"></img>
               </CardPrevBtn>
               <CardPrevText>
                 <CardPrevTitle>Prev</CardPrevTitle>
@@ -73,7 +73,7 @@ export const SelectedPostTemplate: React.FC<Props> = ({
                 </CardNextDescription>
               </CardNextText>
               <CardNextBtn>
-                <img src={RightArrow}></img>
+                <img src={RightArrow} alt="right-arrow"></img>
               </CardNextBtn>
             </CardNextWrapper>
           </CardNextArrow>

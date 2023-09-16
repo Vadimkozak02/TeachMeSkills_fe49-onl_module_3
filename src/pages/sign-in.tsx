@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import styled from 'styled-components';
 import { HeaderMenu } from '../features/header-menu-sign-in/header-menu-sign-in';
 import { MainTemplate } from '../ui/templates/main-template';
 import { BackLink } from '../features/back-link/back-link';

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { mokieApi } from "../../mokie.api";
 
 type Payload = {
     postId: number;

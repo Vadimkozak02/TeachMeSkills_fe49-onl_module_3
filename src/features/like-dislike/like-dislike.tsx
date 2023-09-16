@@ -107,31 +107,3 @@ const FooterDislike = styled.button`
 const DislikeCount = styled.div`
   font-size: 14px;
 `;
-
-const FooterMoreWrapper = styled.div`
-  width: 70px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const FooterBookmark = styled.button`
-  cursor: pointer;
-  background-color: var(--background-primary-color);
-  width: 30px;
-  border: none;
-`;
-
-const BookmarkImg = styled.img`
-  width: 15px;
-`;
-
-const FooterMoreBtn = styled.button`
-  cursor: pointer;
-  background-color: var(--background-primary-color);
-  width: 30px;
-  border: none;
-`;
-
-const FooterMoreImg = styled.img`
-  width: 15px;
-`;

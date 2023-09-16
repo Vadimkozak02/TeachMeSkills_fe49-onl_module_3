@@ -1,22 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BigCard } from '../cards/big-card/big-card';
+// import { BigCard } from '../cards/big-card/big-card';
 import { AverageCard } from '../cards/average-card/average-card';
 import { SmallCard } from '../cards/small-card/small-card';
-import smallAstronaut from '../cards/card-img/astronautSmall.jpg';
 import { LikeDislike } from '../../features/like-dislike/like-dislike';
 import { mokieApi } from '../../mokie.api';
-
-const BigCardItem = [
-  {
-    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate laudantium provident, quibusdam modi nihil molestias nostrum rem error eos ipsa inventore ullam vitae explicabo magnam nobis ea expedita at doloribus!',
-  },
-  { date: 'April 20, 2021' },
-  {
-    title:
-      'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
-  },
-];
+import { Link } from 'react-router-dom';
 
 export const CardPost: React.FC = () => {
   console.log('mokieApi', mokieApi[0]);
@@ -34,108 +23,48 @@ export const CardPost: React.FC = () => {
           ></BigCard> */}
           <LeftBottomWrapper>
             <LeftTop>
-              <AverageCard
-                id={mokieApi[1].id}
-                image={<img src={mokieApi[1].image} alt="astronaut"></img>}
-                text={<div>{mokieApi[1].text}</div>}
-                date={<div>{mokieApi[1].date}</div>}
-                title={<div>{mokieApi[1].title}</div>}
-                LikeDislike={LikeDislike}
-              ></AverageCard>
-              <AverageCard
-                id={mokieApi[2].id}
-                image={<img src={mokieApi[2].image} alt="astronaut"></img>}
-                text={<div>{mokieApi[2].text}</div>}
-                date={<div>{mokieApi[2].date}</div>}
-                title={<div>{mokieApi[2].title}</div>}
-                LikeDislike={LikeDislike}
-              ></AverageCard>
-              <AverageCard
-                id={mokieApi[3].id}
-                image={<img src={mokieApi[3].image} alt="astronaut"></img>}
-                text={<div>{mokieApi[3].text}</div>}
-                date={<div>{mokieApi[3].date}</div>}
-                title={<div>{mokieApi[3].title}</div>}
-                LikeDislike={LikeDislike}
-              ></AverageCard>
+              {[1, 2, 3].map((el) => (
+                <Link to={`/posts/${el}`}>
+                  <AverageCard
+                    id={mokieApi[el].id}
+                    image={<img src={mokieApi[el].image} alt="astronaut"></img>}
+                    text={<div>{mokieApi[el].text}</div>}
+                    date={<div>{mokieApi[el].date}</div>}
+                    title={<div>{mokieApi[el].title}</div>}
+                    LikeDislike={LikeDislike}
+                  ></AverageCard>
+                </Link>
+              ))}
             </LeftTop>
             <LeftBottom>
-              <AverageCard
-                id={mokieApi[4].id}
-                image={<img src={mokieApi[4].image} alt="astronaut"></img>}
-                text={<div>{mokieApi[4].text}</div>}
-                date={<div>{mokieApi[4].date}</div>}
-                title={<div>{mokieApi[4].title}</div>}
-                LikeDislike={LikeDislike}
-              ></AverageCard>
-              <AverageCard
-                id={mokieApi[5].id}
-                image={<img src={mokieApi[5].image} alt="astronaut"></img>}
-                text={<div>{mokieApi[5].text}</div>}
-                date={<div>{mokieApi[5].date}</div>}
-                title={<div>{mokieApi[5].title}</div>}
-                LikeDislike={LikeDislike}
-              ></AverageCard>
-              <AverageCard
-                id={mokieApi[6].id}
-                image={<img src={mokieApi[6].image} alt="astronaut"></img>}
-                text={<div>{mokieApi[6].text}</div>}
-                date={<div>{mokieApi[6].date}</div>}
-                title={<div>{mokieApi[6].title}</div>}
-                LikeDislike={LikeDislike}
-              ></AverageCard>
+              {[4, 5, 6].map((el) => (
+                <Link to={`/posts/${el}`}>
+                  <AverageCard
+                    id={mokieApi[el].id}
+                    image={<img src={mokieApi[el].image} alt="astronaut"></img>}
+                    text={<div>{mokieApi[el].text}</div>}
+                    date={<div>{mokieApi[el].date}</div>}
+                    title={<div>{mokieApi[el].title}</div>}
+                    LikeDislike={LikeDislike}
+                  ></AverageCard>
+                </Link>
+              ))}
             </LeftBottom>
           </LeftBottomWrapper>
         </PostLeft>
         <PostRight>
-          <SmallCard
-            id={mokieApi[7].id}
-            image={<img src={mokieApi[7].image} alt="astronaut"></img>}
-            text={<div>{mokieApi[7].text}</div>}
-            date={<div>{mokieApi[7].date}</div>}
-            title={<div>{mokieApi[7].title}</div>}
-            LikeDislike={LikeDislike}
-          ></SmallCard>
-          <SmallCard
-            id={mokieApi[8].id}
-            image={<img src={mokieApi[8].image} alt="astronaut"></img>}
-            text={<div>{mokieApi[8].text}</div>}
-            date={<div>{mokieApi[8].date}</div>}
-            title={<div>{mokieApi[8].title}</div>}
-            LikeDislike={LikeDislike}
-          ></SmallCard>
-          <SmallCard
-            id={mokieApi[9].id}
-            image={<img src={mokieApi[9].image} alt="astronaut"></img>}
-            text={<div>{mokieApi[9].text}</div>}
-            date={<div>{mokieApi[9].date}</div>}
-            title={<div>{mokieApi[9].title}</div>}
-            LikeDislike={LikeDislike}
-          ></SmallCard>
-          <SmallCard
-            id={mokieApi[10].id}
-            image={<img src={mokieApi[10].image} alt="astronaut"></img>}
-            text={<div>{mokieApi[10].text}</div>}
-            date={<div>{mokieApi[10].date}</div>}
-            title={<div>{mokieApi[10].title}</div>}
-            LikeDislike={LikeDislike}
-          ></SmallCard>
-          <SmallCard
-            id={mokieApi[11].id}
-            image={<img src={mokieApi[11].image} alt="astronaut"></img>}
-            text={<div>{mokieApi[11].text}</div>}
-            date={<div>{mokieApi[11].date}</div>}
-            title={<div>{mokieApi[11].title}</div>}
-            LikeDislike={LikeDislike}
-          ></SmallCard>
-          <SmallCard
-            id={mokieApi[12].id}
-            image={<img src={mokieApi[12].image} alt="astronaut"></img>}
-            text={<div>{mokieApi[12].text}</div>}
-            date={<div>{mokieApi[12].date}</div>}
-            title={<div>{mokieApi[12].title}</div>}
-            LikeDislike={LikeDislike}
-          ></SmallCard>
+          {[7, 8, 9, 10, 11, 12].map((el) => (
+            <Link to={`/posts/${el}`}>
+              <SmallCard
+                id={mokieApi[el].id}
+                image={<img src={mokieApi[el].image} alt="astronaut"></img>}
+                text={<div>{mokieApi[el].text}</div>}
+                date={<div>{mokieApi[el].date}</div>}
+                title={<div>{mokieApi[el].title}</div>}
+                LikeDislike={LikeDislike}
+              ></SmallCard>
+            </Link>
+          ))}
         </PostRight>
       </PostWrapper>
     </CardPostW>
