@@ -14,7 +14,7 @@ function Root() {
     <Provider store={store}>
       <div className="App">
         <Routes>
-          <Route path="/" element={<SignIn />} />
+          <Route path="/" element={<Blog />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/posts" element={<Blog />} />

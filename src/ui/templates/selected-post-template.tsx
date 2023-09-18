@@ -6,6 +6,7 @@ import BookmarkSolid from '../cards/card-img/bookmark-solid.svg';
 import LeftArrow from './arrow-img/arrow-left.svg';
 import RightArrow from './arrow-img/arrow-right.svg';
 import { LikeDislike } from '../../features/like-dislike/like-dislike';
+import { BackLink } from '../../features/back-link/back-link';
 
 type Props = {
   id: number;
@@ -31,7 +32,10 @@ export const SelectedPostTemplate: React.FC<Props> = ({
     <SelectedPostWrapper>
       <CardWrapper>
         <CardTopWrapper>
-          <CardDate>{date}</CardDate>
+          <BackLinkWrapper>
+            <BackLink />
+            <NameOfPage>{`| Post ${id}`}</NameOfPage>
+          </BackLinkWrapper>
           <CardTitle>{title}</CardTitle>
           <CardImgWrapper>{image}</CardImgWrapper>
           <CardText>{text}</CardText>
@@ -95,7 +99,7 @@ const SelectedPostWrapper = styled.div`
 `;
 
 const CardWrapper = styled.div`
-  width: 1200px;
+  width: 1120px;
   padding: 10px;
   margin: auto;
 `;
@@ -104,14 +108,19 @@ const CardTopWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
-const CardDate = styled.div`
-  font-size: 14px;
+const BackLinkWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const NameOfPage = styled.div`
+  margin-left: 5px;
+  align-self: flex-end;
   color: var(--text-secondary-color);
-  margin: 30px 0 10px;
 `;
 
 const CardTitle = styled.h1`
-  text-align: center;
+  text-align: left;
   color: black;
   font-size: 56px;
   margin: 0 auto 10px;
@@ -124,10 +133,14 @@ const CardText = styled.div`
 
 const CardImgWrapper = styled.div`
   width: 800px;
+  max-height: 400px;
   margin: 20px auto;
+  display: flex;
 
   img {
-    width: 100%;
+    /* width: 100%;
+    height: 100%; */
+    margin: auto;
   }
 `;
 

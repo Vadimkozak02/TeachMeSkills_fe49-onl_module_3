@@ -11,7 +11,17 @@ import SmallImgOne from './ui/image/small-card-imgOne.png';
 import SmallImgTwo from './ui/image/small-card-imgTwo.png';
 import SmallImgThree from './ui/image/small-card-imgThree.png';
 
-export const mokieApi = [
+export type TypeOfMockie = {
+  id: number;
+  image: string;
+  text: string;
+  date: string;
+  title: string;
+  author: number;
+  LikeDislike: object;
+};
+
+export const mokieApi: TypeOfMockie[] = [
   // Big Card start
   {
     id: 1,

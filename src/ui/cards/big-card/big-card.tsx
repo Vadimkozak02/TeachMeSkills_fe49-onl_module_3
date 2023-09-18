@@ -36,7 +36,12 @@ export const BigCard: React.FC<Props> = ({
         </CardTextWrapper>
         <CardImgWrapper>{image}</CardImgWrapper>
       </CardTopWrapper>
-      <CardFooterImg>
+      <CardFooterImg
+        onClick={(event) => {
+          event.stopPropagation();
+          event.preventDefault();
+        }}
+      >
         <LikeDislike postId={id}></LikeDislike>
         <FooterMoreWrapper>
           <FooterBookmark onClick={() => setActiveBookmark(!activeBookmark)}>

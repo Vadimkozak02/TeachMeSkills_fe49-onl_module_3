@@ -6,70 +6,83 @@ import { SmallCard } from '../cards/small-card/small-card';
 import { LikeDislike } from '../../features/like-dislike/like-dislike';
 import { mokieApi } from '../../mokie.api';
 import { Link } from 'react-router-dom';
+import { TypeOfMockie } from '../../mokie.api';
+
+type TypeOfCardPost = {
+  card: TypeOfMockie;
+};
 
 export const CardPost: React.FC = () => {
-  console.log('mokieApi', mokieApi[0]);
   return (
     <CardPostW>
       <PostWrapper>
         <PostLeft>
-          {/* <BigCard
-            id={mokieApi[0].id}
-            image={<img src={mokieApi[0].image} alt="astronaut"></img>}
-            text={<div>{mokieApi[0].text}</div>}
-            date={<div>{mokieApi[0].date}</div>}
-            title={<div>{mokieApi[0].title}</div>}
-            LikeDislike={LikeDislike}
-          ></BigCard> */}
+          {/* <StyledLink to={`/posts/${mokieApi[0].id}`}>
+            <BigCard
+              id={mokieApi[0].id}
+              image={<img src={mokieApi[0].image} alt="astronaut"></img>}
+              text={<div>{mokieApi[0].text}</div>}
+              date={<div>{mokieApi[0].date}</div>}
+              title={<div>{mokieApi[0].title}</div>}
+              LikeDislike={LikeDislike}
+            ></BigCard>
+          </StyledLink> */}
           <LeftBottomWrapper>
             <LeftTop>
               {[1, 2, 3].map((el) => (
-                <Link to={`/posts/${el}`}>
+                <StyledLink to={`/posts/${el + 1}`}>
                   <AverageCard
                     id={mokieApi[el].id}
+                    key={mokieApi[el].id}
                     image={<img src={mokieApi[el].image} alt="astronaut"></img>}
                     text={<div>{mokieApi[el].text}</div>}
                     date={<div>{mokieApi[el].date}</div>}
                     title={<div>{mokieApi[el].title}</div>}
                     LikeDislike={LikeDislike}
                   ></AverageCard>
-                </Link>
+                </StyledLink>
               ))}
             </LeftTop>
             <LeftBottom>
               {[4, 5, 6].map((el) => (
-                <Link to={`/posts/${el}`}>
+                <StyledLink to={`/posts/${el + 1}`}>
                   <AverageCard
                     id={mokieApi[el].id}
+                    key={mokieApi[el].id}
                     image={<img src={mokieApi[el].image} alt="astronaut"></img>}
                     text={<div>{mokieApi[el].text}</div>}
                     date={<div>{mokieApi[el].date}</div>}
                     title={<div>{mokieApi[el].title}</div>}
                     LikeDislike={LikeDislike}
                   ></AverageCard>
-                </Link>
+                </StyledLink>
               ))}
             </LeftBottom>
           </LeftBottomWrapper>
         </PostLeft>
         <PostRight>
           {[7, 8, 9, 10, 11, 12].map((el) => (
-            <Link to={`/posts/${el}`}>
+            <StyledLink to={`/posts/${el + 1}`}>
               <SmallCard
                 id={mokieApi[el].id}
+                key={mokieApi[el].id}
                 image={<img src={mokieApi[el].image} alt="astronaut"></img>}
                 text={<div>{mokieApi[el].text}</div>}
                 date={<div>{mokieApi[el].date}</div>}
                 title={<div>{mokieApi[el].title}</div>}
                 LikeDislike={LikeDislike}
               ></SmallCard>
-            </Link>
+            </StyledLink>
           ))}
         </PostRight>
       </PostWrapper>
     </CardPostW>
   );
 };
+
+const StyledLink = styled(Link)`
+  text-decoration: unset;
+`;
 
 const CardPostW = styled.div`
   margin: auto;

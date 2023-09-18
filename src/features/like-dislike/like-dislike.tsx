@@ -4,11 +4,7 @@ import Dislike from '../../ui/cards/card-img/dislike.svg';
 import DislikeBlack from '../../ui/cards/card-img/dislikeBlack.svg';
 import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import {
-  isActive,
-  setActiveDislike,
-  setActiveLike,
-} from './like-dislike.slice';
+import { setActiveDislike, setActiveLike } from './like-dislike.slice';
 
 type Props = {
   postId: number;
@@ -26,7 +22,7 @@ export const LikeDislike: React.FC<Props> = ({ postId }) => {
       <FooterLikeWrapper>
         <FooterLike
           onClick={() => {
-            if (activeLike) dispatch(isActive({ postId }));
+            if (activeLike) return;
             dispatch(setActiveLike({ postId }));
           }}
         >

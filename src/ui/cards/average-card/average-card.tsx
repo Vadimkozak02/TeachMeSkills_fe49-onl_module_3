@@ -29,7 +29,12 @@ export const AverageCard: React.FC<Props> = ({ id, image, date, title }) => {
           <CardTitle>{title}</CardTitle>
         </CardTextWrapper>
       </CardTopWrapper>
-      <CardFooterImg>
+      <CardFooterImg
+        onClick={(event) => {
+          event.stopPropagation();
+          event.preventDefault();
+        }}
+      >
         <LikeDislike postId={id}></LikeDislike>
         <FooterMoreWrapper>
           <FooterBookmark onClick={() => setActiveBookmark(!activeBookmark)}>

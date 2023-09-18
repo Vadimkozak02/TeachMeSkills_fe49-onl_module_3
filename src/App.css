@@ -13,7 +13,7 @@
   & a {
     all: unset;
     color: var(--text-primary-color);
-    text-decoration: underline;
+    text-decoration: unset;
     cursor: pointer;
   }
 

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const BackLink: React.FC = () => {
   return (
     <Link to="/posts">
-      <BackLinkWrapper>Back to home</BackLinkWrapper>
+      <BackLinkWrapper>Home</BackLinkWrapper>
     </Link>
   );
 };
