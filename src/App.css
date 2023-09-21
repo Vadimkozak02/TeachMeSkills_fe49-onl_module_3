@@ -2,12 +2,14 @@
   --background-primary-color: #eeeeeeee;
   --text-primary-color: black;
   --text-secondary-color: rgb(96, 96, 96);
+  --text-hover-color: rgb(12, 12, 179);
 
 
   &.dark {
     --background-primary-color: black;
     --text-primary-color: white;
     --text-secondary-color: rgb(96, 96, 96);
+    --text-hover-color: rgb(30, 30, 139);
   }
 
   & a {

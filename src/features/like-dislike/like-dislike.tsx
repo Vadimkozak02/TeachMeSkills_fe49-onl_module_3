@@ -4,7 +4,9 @@ import Dislike from '../../ui/cards/card-img/dislike.svg';
 import DislikeBlack from '../../ui/cards/card-img/dislikeBlack.svg';
 import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { setActiveDislike, setActiveLike } from './like-dislike.slice';
+import { init, setActiveDislike, setActiveLike } from './like-dislike.slice';
+import { useEffect } from 'react';
+import { mokieApi } from '../../mokie.api';
 
 type Props = {
   postId: number;
@@ -17,12 +19,20 @@ export const LikeDislike: React.FC<Props> = ({ postId }) => {
 
   const activeDislike = rating.userChoice === 'dislike';
 
+  useEffect(() => {
+    setTimeout(() => {
+      const obj = Object.fromEntries(
+        mokieApi.map((item) => [item.id, item.LikeDislike])
+      );
+      dispatch(init(obj));
+    }, 3000);
+  }, []);
+
   return (
     <>
       <FooterLikeWrapper>
         <FooterLike
           onClick={() => {
-            if (activeLike) return;
             dispatch(setActiveLike({ postId }));
           }}
         >
@@ -33,7 +43,6 @@ export const LikeDislike: React.FC<Props> = ({ postId }) => {
         </FooterLike>
         <FooterDislike
           onClick={() => {
-            if (activeDislike) return;
             dispatch(setActiveDislike({ postId }));
           }}
         >

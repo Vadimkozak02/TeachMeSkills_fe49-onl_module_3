@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setActiveTab } from './tabs.slice';
 
 export const Tabs: React.FC = () => {
-  const [activeId, setActiveId] = useState('1');
   const items = [
     { id: '1', title: 'All', disabled: false },
     { id: '2', title: 'My Favorite', disabled: false },
     { id: '3', title: 'Popular', disabled: false },
   ];
+
+  const dispatch = useAppDispatch();
+  const activeId = useAppSelector((state) => state.tabs.activeTab) || '1';
 
   return (
     <TabsWrapper>
@@ -17,7 +21,7 @@ export const Tabs: React.FC = () => {
           title={title}
           active={activeId === id}
           disabled={disabled}
-          setActive={() => setActiveId(id)}
+          setActive={() => dispatch(setActiveTab(id))}
         ></TabsItem>
       ))}
     </TabsWrapper>

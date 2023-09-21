@@ -18,7 +18,11 @@ export type TypeOfMockie = {
   date: string;
   title: string;
   author: number;
-  LikeDislike: object;
+  LikeDislike: {
+    likes: number;
+    dislikes: number;
+    userChoice: 'like' | 'dislike' | null;
+  };
 };
 
 export const mokieApi: TypeOfMockie[] = [
@@ -31,7 +35,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk ...',
     author: 1,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 15, dislikes: 3, userChoice: 'like' },
   },
   // Big Card end
 
@@ -44,7 +48,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 2,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 3,
@@ -54,7 +58,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 3,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 4,
@@ -64,7 +68,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 4,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 5,
@@ -74,7 +78,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 5,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 6,
@@ -84,7 +88,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 6,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 7,
@@ -94,7 +98,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 7,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   // Average Card end
 
@@ -107,7 +111,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 8,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 9,
@@ -117,7 +121,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 9,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 10,
@@ -127,7 +131,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 10,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 11,
@@ -137,7 +141,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 11,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 12,
@@ -147,7 +151,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 12,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 13,
@@ -157,7 +161,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 13,
-    LikeDislike: { LikeDislike },
+    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
   },
   // Small Card end
 ];

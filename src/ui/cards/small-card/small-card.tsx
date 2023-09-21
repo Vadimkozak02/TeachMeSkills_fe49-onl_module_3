@@ -75,6 +75,10 @@ const CardTitle = styled.h1`
   color: black;
   font-size: 21px;
   margin: 0;
+
+  &:hover {
+    color: var(--text-hover-color);
+  }
 `;
 
 const CardImgWrapper = styled.div`

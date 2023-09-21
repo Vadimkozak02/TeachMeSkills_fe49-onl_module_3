@@ -85,6 +85,10 @@ const CardTitle = styled.h1`
   color: black;
   font-size: 34px;
   margin: 0 0 25px;
+
+  &:hover {
+    color: var(--text-hover-color);
+  }
 `;
 
 const CardText = styled.div`

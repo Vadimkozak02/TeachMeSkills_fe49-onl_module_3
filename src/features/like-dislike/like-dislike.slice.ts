@@ -83,34 +83,39 @@ const likeDislike = createSlice({
         setActiveLike(state, action: {payload: Payload}){
             const data = state[action.payload.postId];
             if (!data) return;
-            data.likes++
+            if (data.userChoice === 'like') {
+                data.likes--
+                data.userChoice = null
+                return;
+            }
             if (data.userChoice === 'dislike') {
                 data.dislikes--
             }
-            data.userChoice = 'like';
-        },
-        isActive(state, action: {payload: Payload}){
-            const data = state[action.payload.postId];
-            if(!data) return;
-            data.likes--
-            if (data.userChoice === 'like') {
-                data.likes--
-            }
-            data.userChoice = null;
+            data.likes++
+            data.userChoice = 'like' 
+            
         },
         setActiveDislike(state, action: {payload: Payload}){
             const data = state[action.payload.postId];
             if (!data) return;
-            data.dislikes++
+            if (data.userChoice === 'dislike') {
+                data.dislikes--
+                data.userChoice = null;
+                return;
+            }
             if (data.userChoice === 'like') {
                 data.likes--
             }
+            data.dislikes++
             data.userChoice = 'dislike';
+        },
+        init(state, action: {payload: Record<number, Rating>}) {
+            Object.entries(action.payload).forEach(([postId, rating]) => state[+postId] = rating);
         }
     }
 });
 
 export const {
-    actions: {setActiveLike, isActive, setActiveDislike}, 
+    actions: {setActiveLike, setActiveDislike, init}, 
     reducer: likeDislikeReducer, 
 } = likeDislike;

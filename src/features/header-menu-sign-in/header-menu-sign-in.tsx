@@ -1,22 +1,15 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import search from '../../ui/menu/img/white.svg';
-import burgerMenu from '../../ui/menu/img/burger_menu.svg';
-import closeMenu from '../../ui/menu/img/close_white.svg';
-import personLogo from '../../ui/menu/img/person.svg';
+import search from '../../ui/menu/img/search.svg';
+import burgerMenu from '../../ui/menu/img/burger-menu.svg';
+import closeMenu from '../../ui/menu/img/close-btn.svg';
+import personLogo from '../../ui/menu/img/person-two.svg';
+import { BackLink } from '../back-link/back-link';
 
 let users = [
   {
     id: 1,
     fullName: 'Artem Malkin',
-  },
-  {
-    id: 2,
-    fullName: 'Max Jordan',
-  },
-  {
-    id: 3,
-    fullName: 'Kris Smith',
   },
 ];
 
@@ -57,18 +50,28 @@ export const HeaderMenu: React.FC = () => {
         </MenuPersonWrap>
       </MenuWrap>
       <Burger>
-        <BurgerPersonWrap style={{ display: isOpened ? 'flex' : 'none' }}>
-          <BurgerPersonInitials>
-            {initials.map((item, index) => (
-              <div key={index}>{item}</div>
-            ))}
-          </BurgerPersonInitials>
-          <PersonName>
-            {users.map(({ id, fullName }) => (
-              <li key={id}>{fullName}</li>
-            ))}
-          </PersonName>
-        </BurgerPersonWrap>
+        <BurgerWrap style={{ display: isOpened ? 'flex' : 'none' }}>
+          <BurgerTop>
+            <BurgerPesonWrap>
+              <BurgerPersonInitials>
+                {initials.map((item, index) => (
+                  <div key={index}>{item}</div>
+                ))}
+              </BurgerPersonInitials>
+              <PersonName>
+                {users.map(({ id, fullName }) => (
+                  <li key={id}>{fullName}</li>
+                ))}
+              </PersonName>
+            </BurgerPesonWrap>
+            <BurgerHomeBtn>
+              <BackLink />
+            </BurgerHomeBtn>
+            <BurgerAddPostBtn>Add post</BurgerAddPostBtn>
+          </BurgerTop>
+
+          <BurgerButtom></BurgerButtom>
+        </BurgerWrap>
       </Burger>
     </>
   );
@@ -152,29 +155,69 @@ const PersonImg = styled.img`
   height: 25px;
 `;
 
-const PersonName = styled.div`
-  width: 100;
-  color: white;
-  list-style-type: none;
-`;
-
 const Burger = styled.div`
   position: relative;
 `;
 
-const BurgerPersonWrap = styled.div`
+const BurgerWrap = styled.div`
   position: absolute;
   width: 200px;
-  display: flex;
-  justify-content: space-around;
   line-height: 50px;
-  align-items: center;
-  background-color: #0000b4;
+  background-color: #ffffff;
   border-top: 2px solid #2d5394;
+  height: 100vh;
+  flex-direction: column;
+`;
+
+const BurgerTop = styled.div``;
+
+const BurgerPesonWrap = styled.div`
+  display: flex;
+  /* padding-left: 20px; */
+  background-color: #0000b4;
+  border-bottom: 2px solid #2d5394;
+  padding: 10px 0 10px 30px;
 `;
 
 const BurgerPersonInitials = styled.div`
   width: 30px;
   text-align: center;
   color: white;
+  margin-right: 15px;
 `;
+
+const PersonName = styled.div`
+  width: 100%;
+  color: white;
+  list-style-type: none;
+`;
+
+const BurgerHomeBtn = styled.div`
+  width: 100%;
+  border-bottom: 2px solid var(--background-primary-color);
+  cursor: pointer;
+
+  div {
+    margin: 10px auto;
+    text-align: center;
+    font-weight: 600;
+
+    &:hover {
+      color: var(--text-hover-color);
+    }
+  }
+`;
+
+const BurgerAddPostBtn = styled.div`
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid var(--background-primary-color);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--text-hover-color);
+  }
+`;
+
+const BurgerButtom = styled.div``;
