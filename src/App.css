@@ -2,14 +2,29 @@
   --background-primary-color: #eeeeeeee;
   --text-primary-color: black;
   --text-secondary-color: rgb(96, 96, 96);
+  --text-white-color: #FFFFFF;
   --text-hover-color: rgb(12, 12, 179);
+  --person-background-line: #5360cd;
 
+  --burger-backkgorund-color: #0000b4;
+  --burger-hover-bg-color: #000072;
+
+  --logIn-Out-background-color: #dadadaee;
+  --logIn-Out--active-bg-color: #b6b6b6ee;
 
   &.dark {
     --background-primary-color: black;
     --text-primary-color: white;
     --text-secondary-color: rgb(96, 96, 96);
+    --text-white-color: #FFFFFF;
     --text-hover-color: rgb(30, 30, 139);
+    --person-background-line: #5360cd;
+
+    --burger-backkgorund-color: #0000b4;
+    --burger-hover-bg-color: #000072;
+
+    --logIn-Out-background-color: #dadadaee;
+    --logIn-Out--active-bg-color: #b6b6b6ee;
   }
 
   & a {

@@ -1,15 +1,14 @@
-import { MenuSite } from '#ui/menu/menu-site';
 import styled from 'styled-components';
 import { Tabs } from '../../features/tabs/Tabs';
 import { CardPost } from '../cards-post/card-post';
-// './cards-post/card-post';
 import LeftArrow from '../templates/arrow-img/arrow-left.svg';
 import RightArrow from '../templates/arrow-img/arrow-right.svg';
+import { HeaderMenu } from '../../features/header-menu-sign-in/header-menu';
 
 export const Blog: React.FC = () => {
   return (
     <BlogBg>
-      <MenuSite></MenuSite>
+      <HeaderMenu></HeaderMenu>
       <BlogWrapper>
         <BlogTitle>Blog</BlogTitle>
         <BlogTabs>
@@ -69,6 +68,7 @@ const BlogWrapper = styled.div`
   margin: auto;
 `;
 const BlogTitle = styled.h1`
+  color: var(--text-primary-color);
   margin: 50px 0 0;
 `;
 const BlogTabs = styled.div`

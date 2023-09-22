@@ -11,6 +11,6 @@ export const BackLink: React.FC = () => {
 };
 
 const BackLinkWrapper = styled.div`
-  color: var(--text-primary-color);
+  color: var(--text-secondary-color);
   margin-top: 50px;
 `;

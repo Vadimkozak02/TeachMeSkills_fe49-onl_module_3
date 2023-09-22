@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { CardPost } from './ui/cards-post/card-post';
+import { Menu } from '#ui/menu/menu';
 
 function Root() {
   return (

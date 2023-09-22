@@ -75,7 +75,7 @@ const CardDate = styled.div`
 `;
 
 const CardTitle = styled.h1`
-  color: black;
+  color: var(--text-primary-color);
   font-size: 17px;
   margin: 0;
 

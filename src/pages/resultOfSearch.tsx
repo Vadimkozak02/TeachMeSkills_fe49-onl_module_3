@@ -1,6 +1,6 @@
 import { RersultCard } from '#ui/cards/result-card/result-card';
 import styled from 'styled-components';
-import { HeaderMenu } from '../features/header-menu-sign-in/header-menu-sign-in';
+import { HeaderMenu } from '../features/header-menu-sign-in/header-menu';
 import astronaut from '../ui/cards/card-img/astronaut_.jpg';
 import LeftArrow from '../ui/templates/arrow-img/arrow-left.svg';
 import RightArrow from '../ui/templates/arrow-img/arrow-right.svg';

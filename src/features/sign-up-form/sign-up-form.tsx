@@ -4,6 +4,7 @@ import { Button } from '#ui/button';
 import styled from 'styled-components';
 import { setName } from './sign-up-form.slice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
+import { register } from '../auth/registration.slice';
 
 export const SignUpForm: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -51,7 +52,10 @@ export const SignUpForm: React.FC = () => {
             setConfirmPassword(currentTarget.value)
           }
         />
-        <Button variant="primary" onClick={() => null}>
+        <Button
+          variant="primary"
+          onClick={() => dispatch(register({ username: name, password }))}
+        >
           Sign Up
         </Button>
       </form>

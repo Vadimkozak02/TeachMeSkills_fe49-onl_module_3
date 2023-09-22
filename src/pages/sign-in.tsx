@@ -1,4 +1,4 @@
-import { HeaderMenu } from '../features/header-menu-sign-in/header-menu-sign-in';
+import { HeaderMenu } from '../features/header-menu-sign-in/header-menu';
 import { MainTemplate } from '../ui/templates/main-template';
 import { BackLink } from '../features/back-link/back-link';
 import { Title } from '#ui/title/title';

@@ -71,7 +71,6 @@ const FooterLike = styled.button`
   border: none;
   cursor: pointer;
   width: 30px;
-  background-color: var(--background-primary-color);
 `;
 
 const LikeWrapper = styled.div`
@@ -100,7 +99,6 @@ const DislikeImg = styled.img`
 const FooterDislike = styled.button`
   display: flex;
   width: 30px;
-  background-color: var(--background-primary-color);
   border: none;
   cursor: pointer;
 

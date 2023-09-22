@@ -1,8 +1,8 @@
-import { MenuSite } from '#ui/menu/menu-site';
 import { SelectedPostTemplate } from '#ui/templates/selected-post-template';
 import { Navigate, useParams } from 'react-router-dom';
 import { mokieApi } from '../mokie.api';
 import { LikeDislike } from '../features/like-dislike/like-dislike';
+import { HeaderMenu } from '../features/header-menu-sign-in/header-menu';
 
 export const SelectedPost: React.FC = () => {
   const { postId } = useParams();
@@ -14,7 +14,7 @@ export const SelectedPost: React.FC = () => {
 
   return (
     <>
-      <MenuSite></MenuSite>
+      <HeaderMenu></HeaderMenu>
       <SelectedPostTemplate
         id={selectedPost.id}
         image={<img src={selectedPost.image} alt="astronaut"></img>}

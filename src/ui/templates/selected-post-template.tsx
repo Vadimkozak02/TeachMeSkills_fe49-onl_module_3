@@ -95,7 +95,7 @@ export const SelectedPostTemplate: React.FC<Props> = ({
 };
 
 const SelectedPostWrapper = styled.div`
-  background-color: lightgrey;
+  background-color: var(--background-primary-color);
 `;
 
 const CardWrapper = styled.div`
@@ -121,7 +121,7 @@ const NameOfPage = styled.div`
 
 const CardTitle = styled.h1`
   text-align: left;
-  color: black;
+  color: var(--text-primary-color);
   font-size: 56px;
   margin: 0 auto 10px;
 `;
@@ -198,7 +198,9 @@ const CardPrevWrapper = styled.div`
   display: flex;
 `;
 const CardPrevText = styled.div``;
-const CardPrevTitle = styled.div``;
+const CardPrevTitle = styled.div`
+  color: var(--text-primary-color);
+`;
 const CardPrevDescription = styled.div`
   color: var(--text-secondary-color);
 `;
@@ -216,6 +218,7 @@ const CardNextWrapper = styled.div`
 `;
 const CardNextText = styled.div``;
 const CardNextTitle = styled.div`
+  color: var(--text-primary-color);
   text-align: end;
 `;
 const CardNextDescription = styled.div`
