@@ -2,7 +2,7 @@ import { SelectedPostTemplate } from '#ui/templates/selected-post-template';
 import { Navigate, useParams } from 'react-router-dom';
 import { mokieApi } from '../mokie.api';
 import { LikeDislike } from '../features/like-dislike/like-dislike';
-import { HeaderMenu } from '../features/header-menu-sign-in/header-menu';
+import { HeaderMenu } from '../features/header-menu/header-menu';
 
 export const SelectedPost: React.FC = () => {
   const { postId } = useParams();

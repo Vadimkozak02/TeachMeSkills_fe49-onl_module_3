@@ -6,6 +6,8 @@ import closeMenu from '../../ui/menu/img/close-btn.svg';
 import personLogo from '../../ui/menu/img/person-two.svg';
 import { BackLink } from '../back-link/back-link';
 import { ThemeSwitcher } from '../theme-switcher/theme-switcher';
+import { SignIn } from '../../pages/sign-in';
+import { Link } from 'react-router-dom';
 
 let users = [
   {
@@ -48,7 +50,7 @@ export const HeaderMenu: React.FC = () => {
         >
           <SearchImg src={search}></SearchImg>
         </MenuSearchBtn>
-        <MenuPersonWrap style={{ width: !isActive ? '70px' : '250px' }}>
+        <MenuPersonWrap style={{ width: !isActive ? '80px' : '250px' }}>
           {!isActive ? (
             <PersonLogo>
               <PersonImg src={personLogo} alt="userImg"></PersonImg>
@@ -96,7 +98,9 @@ export const HeaderMenu: React.FC = () => {
 
           <BurgerButtom>
             <ThemeSwitcher></ThemeSwitcher>
-            <LogOutWrapper>Log Out</LogOutWrapper>
+            <LogOutWrapper onClick={() => setIsActive(!isActive)}>
+              {isActive ? 'Log Out' : <Link to="/sign-in">Sign In</Link>}
+            </LogOutWrapper>
           </BurgerButtom>
         </BurgerWrap>
       </Burger>
@@ -114,7 +118,7 @@ const MenuWrap = styled.div`
 
 const MenuBurger = styled.button`
   cursor: pointer;
-  width: 70px;
+  width: 80px;
   border: none;
   border-right: 2px solid #2d5394;
   background-color: var(--burger-backkgorund-color);
@@ -123,6 +127,7 @@ const MenuBurger = styled.button`
   outline: none;
   color: var(--text-white-color);
   position: relative;
+  padding: 12px;
 
   &:active {
     background-color: var(--burger-hover-bg-color);
@@ -148,7 +153,7 @@ const MenuSearch = styled.input`
 `;
 
 const MenuSearchBtn = styled.button`
-  width: 70px;
+  width: 80px;
   min-height: 100%;
   background-color: #0000b4;
   border: none;
@@ -203,12 +208,11 @@ const BurgerPesonWrap = styled.div`
   align-items: center;
   background-color: #0000b4;
   border-bottom: 2px solid #2d5394;
+  justify-content: center;
   padding: 10px;
-  text-align: center;
 `;
 
 const BurgerPersonInitialsWrapper = styled.div`
-  width: 30px;
   text-align: center;
   color: var(--text-white-color);
   margin-right: 25px;
@@ -222,7 +226,6 @@ const BurgerPersonInitials = styled.div`
 `;
 
 const PersonName = styled.div`
-  width: 100%;
   color: var(--text-white-color);
   list-style-type: none;
 `;

@@ -1,7 +1,7 @@
 import { MainTemplate } from '#ui/templates/main-template';
 import { Title } from '#ui/title/title';
 import { BackLink } from '../features/back-link/back-link';
-import { HeaderMenu } from '../features/header-menu-sign-in/header-menu';
+import { HeaderMenu } from '../features/header-menu/header-menu';
 import { SuccessForm } from '../features/success-form/success-form';
 
 export const Success: React.FC = () => {

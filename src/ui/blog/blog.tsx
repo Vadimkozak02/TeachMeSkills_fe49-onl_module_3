@@ -3,7 +3,7 @@ import { Tabs } from '../../features/tabs/Tabs';
 import { CardPost } from '../cards-post/card-post';
 import LeftArrow from '../templates/arrow-img/arrow-left.svg';
 import RightArrow from '../templates/arrow-img/arrow-right.svg';
-import { HeaderMenu } from '../../features/header-menu-sign-in/header-menu';
+import { HeaderMenu } from '../../features/header-menu/header-menu';
 
 export const Blog: React.FC = () => {
   return (
