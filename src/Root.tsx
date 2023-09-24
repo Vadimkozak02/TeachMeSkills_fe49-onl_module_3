@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { ResultOfSearch } from './pages/resultOfSearch';
+import { PreviewPopUp } from './features/preview-pop-up/preview-pop-up';
 
 function Root() {
   return (

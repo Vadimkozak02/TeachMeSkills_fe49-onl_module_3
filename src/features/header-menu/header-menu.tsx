@@ -8,6 +8,8 @@ import { BackLink } from '../back-link/back-link';
 import { ThemeSwitcher } from '../theme-switcher/theme-switcher';
 import { SignIn } from '../../pages/sign-in';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setIsOpen } from './header-menu.slice';
 
 let users = [
   {
@@ -24,14 +26,20 @@ let initials = nameOfUsers.map((item) => item[0].charAt(0) + item[1].charAt(0));
 // };
 
 export const HeaderMenu: React.FC = () => {
-  const [isOpened, setIsOpen] = useState(false);
+  const dispatch = useAppDispatch();
+  const isOpened = useAppSelector((state) => state.headerMenu.isOpened);
+
+  // const [isOpened, setIsOpen] = useState(false);
   const [searchActive, setSearchAactive] = useState(false);
   const [isActive, setIsActive] = useState(true);
 
   return (
     <>
       <MenuWrap>
-        <MenuBurger type="button" onClick={() => setIsOpen(!isOpened)}>
+        <MenuBurger
+          type="button"
+          onClick={() => dispatch(setIsOpen(!isOpened))}
+        >
           <MenuImg src={isOpened ? closeMenu : burgerMenu} alt="menu" />
         </MenuBurger>
         <MenuSearch

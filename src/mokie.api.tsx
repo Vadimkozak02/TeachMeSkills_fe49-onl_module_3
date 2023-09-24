@@ -35,7 +35,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk ...',
     author: 1,
-    LikeDislike: { likes: 15, dislikes: 3, userChoice: 'like' },
+    LikeDislike: { likes: 18, dislikes: 3, userChoice: 'like' },
   },
   // Big Card end
 
@@ -48,7 +48,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 2,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 15, dislikes: 1, userChoice: 'like' },
   },
   {
     id: 3,
@@ -58,7 +58,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 3,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 19, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 4,
@@ -68,7 +68,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 4,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 21, dislikes: 1, userChoice: 'like' },
   },
   {
     id: 5,
@@ -78,7 +78,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 5,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 23, dislikes: 1, userChoice: 'like' },
   },
   {
     id: 6,
@@ -88,7 +88,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 6,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 17, dislikes: 1, userChoice: 'dislike' },
   },
   {
     id: 7,
@@ -98,7 +98,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 7,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 16, dislikes: 1, userChoice: 'like' },
   },
   // Average Card end
 
@@ -111,7 +111,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 8,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 31, dislikes: 3, userChoice: 'like' },
   },
   {
     id: 9,
@@ -121,7 +121,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 9,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 15, dislikes: 2, userChoice: 'like' },
   },
   {
     id: 10,
@@ -131,7 +131,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 10,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 27, dislikes: 2, userChoice: 'dislike' },
   },
   {
     id: 11,
@@ -141,7 +141,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 11,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 18, dislikes: 1, userChoice: 'like' },
   },
   {
     id: 12,
@@ -151,7 +151,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 12,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 10, dislikes: 1, userChoice: 'like' },
   },
   {
     id: 13,
@@ -161,7 +161,7 @@ export const mokieApi: TypeOfMockie[] = [
     title:
       'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
     author: 13,
-    LikeDislike: { likes: 13, dislikes: 1, userChoice: 'dislike' },
+    LikeDislike: { likes: 23, dislikes: 1, userChoice: 'like' },
   },
   // Small Card end
 ];

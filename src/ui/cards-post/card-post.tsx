@@ -1,32 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-// import { BigCard } from '../cards/big-card/big-card';
 import { AverageCard } from '../cards/average-card/average-card';
 import { SmallCard } from '../cards/small-card/small-card';
 import { LikeDislike } from '../../features/like-dislike/like-dislike';
 import { mokieApi } from '../../mokie.api';
 import { Link } from 'react-router-dom';
-import { TypeOfMockie } from '../../mokie.api';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import {
+  setIsModalOpen,
+  setPreviewImg,
+} from '../../features/preview-pop-up/preview-pop-up.slice';
+import closeBtn from '../../ui/menu/img/close_menu.svg';
 
-type TypeOfCardPost = {
-  card: TypeOfMockie;
-};
+import { PreviewPopUp } from '../../features/preview-pop-up/preview-pop-up';
 
 export const CardPost: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const isModalOpen = useAppSelector((state) => state.previewPopUp.isModalOpen);
+
+  // console.log(dispatch(setPreviewImg('img')));
+
   return (
     <CardPostW>
       <PostWrapper>
         <PostLeft>
-          {/* <StyledLink to={`/posts/${mokieApi[0].id}`}>
-            <BigCard
-              id={mokieApi[0].id}
-              image={<img src={mokieApi[0].image} alt="astronaut"></img>}
-              text={<div>{mokieApi[0].text}</div>}
-              date={<div>{mokieApi[0].date}</div>}
-              title={<div>{mokieApi[0].title}</div>}
-              LikeDislike={LikeDislike}
-            ></BigCard>
-          </StyledLink> */}
           <LeftBottomWrapper>
             <LeftTop>
               {[1, 2, 3].map((el) => (
@@ -39,7 +36,38 @@ export const CardPost: React.FC = () => {
                     date={<div>{mokieApi[el].date}</div>}
                     title={<div>{mokieApi[el].title}</div>}
                     LikeDislike={LikeDislike}
+                    setActive={() => dispatch(setIsModalOpen(true))}
                   ></AverageCard>
+                  <PreviewPopUp
+                    active={isModalOpen}
+                    setActive={() => dispatch(setIsModalOpen)}
+                  >
+                    <PreviewWrapper>
+                      <PreviewCloseBtnWrapper
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          event.preventDefault();
+                        }}
+                      >
+                        <PreviewCloseBtn>
+                          {<img src={mokieApi[el].image} alt="astronaut"></img>}
+                        </PreviewCloseBtn>
+                      </PreviewCloseBtnWrapper>
+                      <div
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          event.preventDefault();
+                        }}
+                      >
+                        <PreviewImgWrapper
+                          onClick={() => dispatch(setIsModalOpen(!isModalOpen))}
+                        >
+                          <PreviewCloseImg src={closeBtn}></PreviewCloseImg>
+                          {/* {closeBtn} */}
+                        </PreviewImgWrapper>
+                      </div>
+                    </PreviewWrapper>
+                  </PreviewPopUp>
                 </StyledLink>
               ))}
             </LeftTop>
@@ -54,13 +82,43 @@ export const CardPost: React.FC = () => {
                     date={<div>{mokieApi[el].date}</div>}
                     title={<div>{mokieApi[el].title}</div>}
                     LikeDislike={LikeDislike}
+                    setActive={() => setIsModalOpen(true)}
                   ></AverageCard>
+                  {/* <PreviewPopUp
+                    active={isModalOpen}
+                    setActive={() => dispatch(setIsModalOpen)}
+                  >
+                    <PreviewWrapper>
+                      <PreviewCloseBtnWrapper
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          event.preventDefault();
+                        }}
+                      >
+                        <PreviewCloseBtn>
+                          {<img src={mokieApi[el].image} alt="astronaut"></img>}
+                        </PreviewCloseBtn>
+                      </PreviewCloseBtnWrapper>
+                      <div
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          event.preventDefault();
+                        }}
+                      >
+                        <PreviewImgWrapper
+                          onClick={() => dispatch(setIsModalOpen(!isModalOpen))}
+                        >
+                          <PreviewCloseImg src={closeBtn}></PreviewCloseImg>
+                        </PreviewImgWrapper>
+                      </div>
+                    </PreviewWrapper>
+                  </PreviewPopUp> */}
                 </StyledLink>
               ))}
             </LeftBottom>
           </LeftBottomWrapper>
         </PostLeft>
-        <PostRight>
+        <div>
           {[7, 8, 9, 10, 11, 12].map((el) => (
             <StyledLink to={`/posts/${el + 1}`}>
               <SmallCard
@@ -72,9 +130,38 @@ export const CardPost: React.FC = () => {
                 title={<div>{mokieApi[el].title}</div>}
                 LikeDislike={LikeDislike}
               ></SmallCard>
+              {/* <PreviewPopUp
+                active={isModalOpen}
+                setActive={() => dispatch(setIsModalOpen)}
+              >
+                <PreviewWrapper>
+                  <PreviewCloseBtnWrapper
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      event.preventDefault();
+                    }}
+                  >
+                    <PreviewCloseBtn>
+                      {<img src={mokieApi[el].image} alt="astronaut"></img>}
+                    </PreviewCloseBtn>
+                  </PreviewCloseBtnWrapper>
+                  <div
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      event.preventDefault();
+                    }}
+                  >
+                    <PreviewImgWrapper
+                      onClick={() => dispatch(setIsModalOpen(!isModalOpen))}
+                    >
+                      <PreviewCloseImg src={closeBtn}></PreviewCloseImg>
+                    </PreviewImgWrapper>
+                  </div>
+                </PreviewWrapper>
+              </PreviewPopUp> */}
             </StyledLink>
           ))}
-        </PostRight>
+        </div>
       </PostWrapper>
     </CardPostW>
   );
@@ -82,6 +169,7 @@ export const CardPost: React.FC = () => {
 
 const StyledLink = styled(Link)`
   text-decoration: unset;
+  position: relative;
 `;
 
 const CardPostW = styled.div`
@@ -98,13 +186,10 @@ const PostLeft = styled.div`
   margin-right: 20px;
 `;
 
-const PostRight = styled.div``;
-
 const LeftBottomWrapper = styled.div`
   display: flex;
   width: 736px;
   justify-content: space-between;
-  /* flex-direction: column; */
 `;
 
 const LeftTop = styled.div`
@@ -117,4 +202,35 @@ const LeftBottom = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+`;
+
+const PreviewWrapper = styled.div`
+  width: 700px;
+  height: 400px;
+  background-color: var(--background-primary-color);
+  margin: auto;
+  padding-top: 100px;
+  border-radius: 5px;
+`;
+
+const PreviewCloseBtnWrapper = styled.div`
+  margin: auto;
+  width: 50%;
+`;
+const PreviewCloseBtn = styled.button`
+  margin: auto;
+  border: none;
+`;
+
+const PreviewImgWrapper = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 20px;
+  cursor: pointer;
+`;
+
+const PreviewCloseImg = styled.img`
+  width: 15px;
+  height: 15px;
 `;

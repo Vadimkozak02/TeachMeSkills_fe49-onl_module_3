@@ -1,8 +1,12 @@
 import { Input } from '#ui/input/input';
-import { useState } from 'react';
 import { Button } from '#ui/button';
 import styled from 'styled-components';
-import { setName } from './sign-up-form.slice';
+import {
+  setConfirmPassword,
+  setEmail,
+  setName,
+  setPassword,
+} from './sign-up-form.slice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { register } from '../auth/registration.slice';
 
@@ -10,10 +14,12 @@ export const SignUpForm: React.FC = () => {
   const dispatch = useAppDispatch();
   const name = useAppSelector(({ signUpForm }) => signUpForm.name);
 
-  const [email, setEmail] = useState('');
+  const email = useAppSelector(({ signUpForm }) => signUpForm.email);
 
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const password = useAppSelector(({ signUpForm }) => signUpForm.password);
+  const confirmPassword = useAppSelector(
+    ({ signUpForm }) => signUpForm.confirmPassword
+  );
 
   return (
     <SignUpWrapper>
@@ -33,7 +39,9 @@ export const SignUpForm: React.FC = () => {
           type="email"
           labelText="Email"
           value={email}
-          onChange={({ currentTarget }) => setEmail(currentTarget.value)}
+          onChange={({ currentTarget }) =>
+            dispatch(setEmail(currentTarget.value))
+          }
           error={email ? undefined : `Email shoudn't be empty`}
         />
         <Input
@@ -41,7 +49,9 @@ export const SignUpForm: React.FC = () => {
           type="password"
           labelText="Password"
           value={password}
-          onChange={({ currentTarget }) => setPassword(currentTarget.value)}
+          onChange={({ currentTarget }) =>
+            dispatch(setPassword(currentTarget.value))
+          }
         />
         <Input
           placeholder="Confirm your password"
@@ -49,7 +59,7 @@ export const SignUpForm: React.FC = () => {
           labelText="Confirm Password"
           value={confirmPassword}
           onChange={({ currentTarget }) =>
-            setConfirmPassword(currentTarget.value)
+            dispatch(setConfirmPassword(currentTarget.value))
           }
         />
         <Button

@@ -15,14 +15,28 @@ type Props = {
   title: React.ReactNode;
   author?: React.ReactNode;
   LikeDislike: React.ComponentType<{ postId: number }>;
+  setActive: () => void;
 };
 
-export const AverageCard: React.FC<Props> = ({ id, image, date, title }) => {
+export const AverageCard: React.FC<Props> = ({
+  id,
+  image,
+  date,
+  title,
+  setActive,
+}) => {
   const [activeBookmark, setActiveBookmark] = useState(false);
 
   return (
     <AverageCardWrapper>
-      <CardImgWrapper>{image}</CardImgWrapper>
+      <CardImgWrapper
+        onClick={(event) => {
+          event.stopPropagation();
+          event.preventDefault();
+        }}
+      >
+        <CardImgButton onClick={() => setActive()}>{image}</CardImgButton>
+      </CardImgWrapper>
       <CardTopWrapper>
         <CardTextWrapper>
           <CardDate>{date}</CardDate>
@@ -91,6 +105,11 @@ const CardImgWrapper = styled.div`
     width: 100%;
     height: 100%;
   }
+`;
+
+const CardImgButton = styled.button`
+  cursor: pointer;
+  border: none;
 `;
 
 const CardFooterImg = styled.div`

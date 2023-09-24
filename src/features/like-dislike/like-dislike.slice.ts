@@ -14,69 +14,69 @@ const likeDislike = createSlice({
     name: 'likeDislike',
     initialState: {
         1: {
-            likes: 15,
-            dislikes: 3,
-            userChoice: 'like',
+            likes: 18, 
+            dislikes: 3, 
+            userChoice: 'like'
         },
         2: {
-            likes: 27,
-            dislikes: 2,
-            userChoice: 'dislike',
+            likes: 15, 
+            dislikes: 1, 
+            userChoice: 'like'
         }, 
         3: {
-            likes: 17,
-            dislikes: 1,
-            userChoice: null,
+            likes: 19, 
+            dislikes: 1, 
+            userChoice: 'dislike'
         },
         4: {
-            likes: 11,
-            dislikes: 3,
-            userChoice: null,
+            likes: 21, 
+            dislikes: 1, 
+            userChoice: 'like'
         },
         5: {
-            likes: 6,
-            dislikes: 2,
-            userChoice: null,
+            likes: 23, 
+            dislikes: 1, 
+            userChoice: 'like'
         },
         6: {
-            likes: 8,
-            dislikes: 1,
-            userChoice: null,
+            likes: 17, 
+            dislikes: 1, 
+            userChoice: 'dislike'
         },
         7: {
-            likes: 15,
-            dislikes: 3,
-            userChoice: null,
+            likes: 16, 
+            dislikes: 1, 
+            userChoice: 'like' 
         },
         8: {
-            likes: 22,
-            dislikes: 1,
-            userChoice: null,
+            likes: 31, 
+            dislikes: 3, 
+            userChoice: 'like'
         },
         9: {
-            likes: 16,
-            dislikes: 2,
-            userChoice: null,
+            likes: 15, 
+            dislikes: 2, 
+            userChoice: 'like'
         },
         10: {
-            likes: 20,
-            dislikes: 1,
-            userChoice: null,
+            likes: 27, 
+            dislikes: 2, 
+            userChoice: 'dislike'
         },
         11: {
-            likes: 18,
-            dislikes: 2,
-            userChoice: null,
+            likes: 18, 
+            dislikes: 1, 
+            userChoice: 'like'
         },
         12: {
-            likes: 25,
-            dislikes: 3,
-            userChoice: null,
+            likes: 10, 
+            dislikes: 1, 
+            userChoice: 'like'
         },
         13: {
-            likes: 11,
-            dislikes: 1,
-            userChoice: null,
+            likes: 23, 
+            dislikes: 1, 
+            userChoice: 'like'
         }
     } as Record<number, Rating>,
     reducers: {
