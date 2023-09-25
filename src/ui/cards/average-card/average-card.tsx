@@ -5,6 +5,7 @@ import Bookmark from '../card-img/bookmark.svg';
 import BookmarkSolid from '../card-img/bookmark-solid.svg';
 import MoreBtn from '../card-img/ellipsis.svg';
 import { LikeDislike } from '../../../features/like-dislike/like-dislike';
+import { useAppSelector } from '../../../hooks';
 
 type Props = {
   id: number;
@@ -16,6 +17,7 @@ type Props = {
   author?: React.ReactNode;
   LikeDislike: React.ComponentType<{ postId: number }>;
   setActive: () => void;
+  setImg: () => void;
 };
 
 export const AverageCard: React.FC<Props> = ({
@@ -24,8 +26,11 @@ export const AverageCard: React.FC<Props> = ({
   date,
   title,
   setActive,
+  setImg,
 }) => {
   const [activeBookmark, setActiveBookmark] = useState(false);
+  const isOpen = useAppSelector((state) => state.previewPopUp.isModalOpen);
+  console.log('isOpen', isOpen);
 
   return (
     <AverageCardWrapper>
@@ -33,6 +38,7 @@ export const AverageCard: React.FC<Props> = ({
         onClick={(event) => {
           event.stopPropagation();
           event.preventDefault();
+          setImg();
         }}
       >
         <CardImgButton onClick={() => setActive()}>{image}</CardImgButton>

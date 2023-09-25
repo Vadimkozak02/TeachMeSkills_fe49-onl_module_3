@@ -15,9 +15,18 @@ type Props = {
   title: React.ReactNode;
   author?: React.ReactNode;
   LikeDislike: React.ComponentType<{ postId: number }>;
+  setActive: () => void;
+  setImg: () => void;
 };
 
-export const SmallCard: React.FC<Props> = ({ id, image, date, title }) => {
+export const SmallCard: React.FC<Props> = ({
+  id,
+  image,
+  date,
+  title,
+  setActive,
+  setImg,
+}) => {
   const [activeBookmark, setActiveBookmark] = useState(false);
 
   return (
@@ -27,14 +36,18 @@ export const SmallCard: React.FC<Props> = ({ id, image, date, title }) => {
           <CardDate>{date}</CardDate>
           <CardTitle>{title}</CardTitle>
         </CardTextWrapper>
-        <CardImgWrapper>{image}</CardImgWrapper>
+
+        <CardImgWrapper
+          onClick={(event) => {
+            event.stopPropagation();
+            event.preventDefault();
+            setImg();
+          }}
+        >
+          <CardImgButton onClick={() => setActive()}>{image}</CardImgButton>
+        </CardImgWrapper>
       </CardTopWrapper>
-      <CardFooterImg
-        onClick={(event) => {
-          event.stopPropagation();
-          event.preventDefault();
-        }}
-      >
+      <CardFooterImg>
         <LikeDislike postId={id}></LikeDislike>
         <FooterMoreWrapper>
           <FooterBookmark onClick={() => setActiveBookmark(!activeBookmark)}>
@@ -85,6 +98,11 @@ const CardImgWrapper = styled.div`
   img {
     width: 80px;
   }
+`;
+
+const CardImgButton = styled.button`
+  cursor: pointer;
+  border: none;
 `;
 
 const CardFooterImg = styled.div`

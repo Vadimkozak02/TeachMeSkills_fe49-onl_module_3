@@ -17,8 +17,7 @@ import { PreviewPopUp } from '../../features/preview-pop-up/preview-pop-up';
 export const CardPost: React.FC = () => {
   const dispatch = useAppDispatch();
   const isModalOpen = useAppSelector((state) => state.previewPopUp.isModalOpen);
-
-  // console.log(dispatch(setPreviewImg('img')));
+  const previewImg = useAppSelector((state) => state.previewPopUp.image);
 
   return (
     <CardPostW>
@@ -37,6 +36,7 @@ export const CardPost: React.FC = () => {
                     title={<div>{mokieApi[el].title}</div>}
                     LikeDislike={LikeDislike}
                     setActive={() => dispatch(setIsModalOpen(true))}
+                    setImg={() => dispatch(setPreviewImg(mokieApi[el].image))}
                   ></AverageCard>
                   <PreviewPopUp
                     active={isModalOpen}
@@ -50,7 +50,7 @@ export const CardPost: React.FC = () => {
                         }}
                       >
                         <PreviewCloseBtn>
-                          {<img src={mokieApi[el].image} alt="astronaut"></img>}
+                          {<img src={previewImg} alt="astronaut"></img>}
                         </PreviewCloseBtn>
                       </PreviewCloseBtnWrapper>
                       <div
@@ -82,9 +82,10 @@ export const CardPost: React.FC = () => {
                     date={<div>{mokieApi[el].date}</div>}
                     title={<div>{mokieApi[el].title}</div>}
                     LikeDislike={LikeDislike}
-                    setActive={() => setIsModalOpen(true)}
+                    setActive={() => dispatch(setIsModalOpen(true))}
+                    setImg={() => dispatch(setPreviewImg(mokieApi[el].image))}
                   ></AverageCard>
-                  {/* <PreviewPopUp
+                  <PreviewPopUp
                     active={isModalOpen}
                     setActive={() => dispatch(setIsModalOpen)}
                   >
@@ -96,7 +97,7 @@ export const CardPost: React.FC = () => {
                         }}
                       >
                         <PreviewCloseBtn>
-                          {<img src={mokieApi[el].image} alt="astronaut"></img>}
+                          {<img src={previewImg} alt="astronaut"></img>}
                         </PreviewCloseBtn>
                       </PreviewCloseBtnWrapper>
                       <div
@@ -109,10 +110,11 @@ export const CardPost: React.FC = () => {
                           onClick={() => dispatch(setIsModalOpen(!isModalOpen))}
                         >
                           <PreviewCloseImg src={closeBtn}></PreviewCloseImg>
+                          {/* {closeBtn} */}
                         </PreviewImgWrapper>
                       </div>
                     </PreviewWrapper>
-                  </PreviewPopUp> */}
+                  </PreviewPopUp>
                 </StyledLink>
               ))}
             </LeftBottom>
@@ -129,8 +131,10 @@ export const CardPost: React.FC = () => {
                 date={<div>{mokieApi[el].date}</div>}
                 title={<div>{mokieApi[el].title}</div>}
                 LikeDislike={LikeDislike}
+                setActive={() => dispatch(setIsModalOpen(true))}
+                setImg={() => dispatch(setPreviewImg(mokieApi[el].image))}
               ></SmallCard>
-              {/* <PreviewPopUp
+              <PreviewPopUp
                 active={isModalOpen}
                 setActive={() => dispatch(setIsModalOpen)}
               >
@@ -142,7 +146,7 @@ export const CardPost: React.FC = () => {
                     }}
                   >
                     <PreviewCloseBtn>
-                      {<img src={mokieApi[el].image} alt="astronaut"></img>}
+                      {<img src={previewImg} alt="astronaut"></img>}
                     </PreviewCloseBtn>
                   </PreviewCloseBtnWrapper>
                   <div
@@ -158,7 +162,7 @@ export const CardPost: React.FC = () => {
                     </PreviewImgWrapper>
                   </div>
                 </PreviewWrapper>
-              </PreviewPopUp> */}
+              </PreviewPopUp>
             </StyledLink>
           ))}
         </div>
@@ -211,6 +215,7 @@ const PreviewWrapper = styled.div`
   margin: auto;
   padding-top: 100px;
   border-radius: 5px;
+  /* pointer-events: none; */
 `;
 
 const PreviewCloseBtnWrapper = styled.div`
@@ -224,13 +229,13 @@ const PreviewCloseBtn = styled.button`
 
 const PreviewImgWrapper = styled.div`
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 15px;
+  right: 35px;
   width: 20px;
   cursor: pointer;
 `;
 
 const PreviewCloseImg = styled.img`
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
 `;

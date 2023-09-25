@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-type Payload = {
-    postId: number;
-}
-
 const previewPopUpSlice = createSlice({
     name: 'previewPopUp',
     initialState: {

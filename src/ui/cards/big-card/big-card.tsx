@@ -14,6 +14,8 @@ type Props = {
   title: React.ReactNode;
   author?: React.ReactNode;
   LikeDislike: React.ComponentType<{ postId: number }>;
+  setActive: () => void;
+  setImg: () => void;
 };
 
 export const BigCard: React.FC<Props> = ({
@@ -23,6 +25,8 @@ export const BigCard: React.FC<Props> = ({
   date,
   title,
   LikeDislike,
+  setActive,
+  setImg,
 }) => {
   const [activeBookmark, setActiveBookmark] = useState(false);
 
@@ -34,7 +38,15 @@ export const BigCard: React.FC<Props> = ({
           <CardTitle>{title}</CardTitle>
           <CardText>{text}</CardText>
         </CardTextWrapper>
-        <CardImgWrapper>{image}</CardImgWrapper>
+        <CardImgWrapper
+          onClick={(event) => {
+            event.stopPropagation();
+            event.preventDefault();
+            setImg();
+          }}
+        >
+          <CardImgButton onClick={() => setActive()}>{image}</CardImgButton>
+        </CardImgWrapper>
       </CardTopWrapper>
       <CardFooterImg
         onClick={(event) => {
@@ -98,6 +110,10 @@ const CardText = styled.div`
 `;
 
 const CardImgWrapper = styled.div``;
+const CardImgButton = styled.button`
+  cursor: pointer;
+  border: none;
+`;
 
 const CardFooterImg = styled.div`
   width: 100%;

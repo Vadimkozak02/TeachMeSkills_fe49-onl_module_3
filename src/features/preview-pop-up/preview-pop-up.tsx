@@ -16,7 +16,9 @@ export const PreviewPopUp: React.FC<TypeOfPreviewPopUp> = ({
   return (
     <>
       <PreviewWrapper
-        style={{ display: active ? 'block' : 'none' }}
+        style={{
+          display: active ? 'block' : 'none',
+        }}
         onClick={() => setActive(false)}
       >
         {children}
@@ -28,25 +30,10 @@ export const PreviewPopUp: React.FC<TypeOfPreviewPopUp> = ({
 const PreviewWrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.121);
   position: fixed;
   top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0px;
   padding-top: 100px;
   z-index: 10;
 `;
-// const PreviewCloseBtnWrapper = styled.div``;
-// const PreviewCloseBtn = styled.button`
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   width: 20px;
-//   border: 1px solid red;
-//   cursor: pointer;
-// `;
-// const PreviewImgWrapper = styled.div`
-//   width: 500px;
-//   margin: auto;
-//   border: 1px solid red;
-// `;
