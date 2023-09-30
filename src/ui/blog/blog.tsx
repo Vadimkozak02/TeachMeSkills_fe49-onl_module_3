@@ -4,8 +4,12 @@ import { CardPost } from '../cards-post/card-post';
 import LeftArrow from '../templates/arrow-img/arrow-left.svg';
 import RightArrow from '../templates/arrow-img/arrow-right.svg';
 import { HeaderMenu } from '../../features/header-menu/header-menu';
+import { useAppSelector } from '../../hooks';
+import { FavoriteCards } from '#ui/cards/favorite-card/favorite-cards';
 
 export const Blog: React.FC = () => {
+  const isActive = useAppSelector((state) => state.tabs.activeTab);
+
   return (
     <BlogBg>
       <HeaderMenu></HeaderMenu>
@@ -14,7 +18,7 @@ export const Blog: React.FC = () => {
         <BlogTabs>
           <Tabs />
         </BlogTabs>
-        <CardPost></CardPost>
+        {isActive === '2' ? <FavoriteCards /> : <CardPost></CardPost>}
         <BlogOtherPages>
           <BlogLeftArrow>
             <LefrArrowBtn>

@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useState } from 'react';
-import Bookmark from '../card-img/bookmark.svg';
-import BookmarkSolid from '../card-img/bookmark-solid.svg';
-import MoreBtn from '../card-img/ellipsis.svg';
 import { LikeDislike } from '../../../features/like-dislike/like-dislike';
 import { useAppSelector } from '../../../hooks';
+import { ActiveBookmark } from '../../../features/activeBookmark/ActiveBookmark';
 
 type Props = {
   id: number;
@@ -16,6 +13,7 @@ type Props = {
   title: React.ReactNode;
   author?: React.ReactNode;
   LikeDislike: React.ComponentType<{ postId: number }>;
+  isFavorite: boolean;
   setActive: () => void;
   setImg: () => void;
 };
@@ -27,10 +25,10 @@ export const AverageCard: React.FC<Props> = ({
   title,
   setActive,
   setImg,
+  isFavorite,
 }) => {
-  const [activeBookmark, setActiveBookmark] = useState(false);
   const isOpen = useAppSelector((state) => state.previewPopUp.isModalOpen);
-  console.log('isOpen', isOpen);
+  const favoritesCards = useAppSelector((state) => state.activeBookmark);
 
   return (
     <AverageCardWrapper>
@@ -56,17 +54,7 @@ export const AverageCard: React.FC<Props> = ({
         }}
       >
         <LikeDislike postId={id}></LikeDislike>
-        <FooterMoreWrapper>
-          <FooterBookmark onClick={() => setActiveBookmark(!activeBookmark)}>
-            <BookmarkImg
-              src={activeBookmark ? BookmarkSolid : Bookmark}
-              alt="bookmark"
-            ></BookmarkImg>
-          </FooterBookmark>
-          <FooterMoreBtn>
-            <FooterMoreImg src={MoreBtn} alt="More"></FooterMoreImg>
-          </FooterMoreBtn>
-        </FooterMoreWrapper>
+        <ActiveBookmark id={id}></ActiveBookmark>
       </CardFooterImg>
       <BorderLine></BorderLine>
     </AverageCardWrapper>
@@ -128,31 +116,3 @@ const CardFooterImg = styled.div`
 `;
 
 const BorderLine = styled.div``;
-
-const FooterMoreWrapper = styled.div`
-  width: 70px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const FooterBookmark = styled.button`
-  cursor: pointer;
-  background-color: var(--background-primary-color);
-  width: 30px;
-  border: none;
-`;
-
-const BookmarkImg = styled.img`
-  width: 13px;
-`;
-
-const FooterMoreBtn = styled.button`
-  cursor: pointer;
-  background-color: var(--background-primary-color);
-  width: 21px;
-  border: none;
-`;
-
-const FooterMoreImg = styled.img`
-  width: 15px;
-`;

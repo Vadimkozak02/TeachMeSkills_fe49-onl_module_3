@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useState } from 'react';
-import Bookmark from '../card-img/bookmark.svg';
-import BookmarkSolid from '../card-img/bookmark-solid.svg';
-import MoreBtn from '../card-img/ellipsis.svg';
+import { ActiveBookmark } from '../../../features/activeBookmark/ActiveBookmark';
 
 type Props = {
   id: number;
@@ -13,6 +10,7 @@ type Props = {
   lesson_num?: React.ReactNode;
   title: React.ReactNode;
   author?: React.ReactNode;
+  isFavorite: boolean;
   LikeDislike: React.ComponentType<{ postId: number }>;
   setActive: () => void;
   setImg: () => void;
@@ -24,12 +22,11 @@ export const BigCard: React.FC<Props> = ({
   text,
   date,
   title,
+  isFavorite,
   LikeDislike,
   setActive,
   setImg,
 }) => {
-  const [activeBookmark, setActiveBookmark] = useState(false);
-
   return (
     <BigCardWrapper>
       <CardTopWrapper>
@@ -55,17 +52,7 @@ export const BigCard: React.FC<Props> = ({
         }}
       >
         <LikeDislike postId={id}></LikeDislike>
-        <FooterMoreWrapper>
-          <FooterBookmark onClick={() => setActiveBookmark(!activeBookmark)}>
-            <BookmarkImg
-              src={activeBookmark ? BookmarkSolid : Bookmark}
-              alt="bookmark"
-            ></BookmarkImg>
-          </FooterBookmark>
-          <FooterMoreBtn>
-            <FooterMoreImg src={MoreBtn} alt="More"></FooterMoreImg>
-          </FooterMoreBtn>
-        </FooterMoreWrapper>
+        <ActiveBookmark id={id}></ActiveBookmark>
       </CardFooterImg>
     </BigCardWrapper>
   );
@@ -74,7 +61,6 @@ export const BigCard: React.FC<Props> = ({
 const BigCardWrapper = styled.div`
   width: 736px;
   background-color: var(--background-primary-color);
-  /* padding: 10px; */
 `;
 
 const CardTopWrapper = styled.div`
@@ -123,32 +109,4 @@ const CardFooterImg = styled.div`
   margin-bottom: 25px;
   padding-bottom: 25px;
   border-bottom: 1px solid #b4b4b477;
-`;
-
-const FooterMoreWrapper = styled.div`
-  width: 70px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const FooterBookmark = styled.button`
-  cursor: pointer;
-  background-color: var(--background-primary-color);
-  width: 40px;
-  border: none;
-`;
-
-const BookmarkImg = styled.img`
-  width: 15px;
-`;
-
-const FooterMoreBtn = styled.button`
-  cursor: pointer;
-  background-color: var(--background-primary-color);
-  width: 20px;
-  border: none;
-`;
-
-const FooterMoreImg = styled.img`
-  width: 15px;
 `;

@@ -28,8 +28,8 @@ export const CardPost: React.FC = () => {
               {[1, 2, 3].map((el) => (
                 <StyledLink to={`/posts/${el + 1}`}>
                   <AverageCard
-                    id={mokieApi[el].id}
                     key={mokieApi[el].id}
+                    id={mokieApi[el].id}
                     image={<img src={mokieApi[el].image} alt="astronaut"></img>}
                     text={<div>{mokieApi[el].text}</div>}
                     date={<div>{mokieApi[el].date}</div>}
@@ -37,6 +37,7 @@ export const CardPost: React.FC = () => {
                     LikeDislike={LikeDislike}
                     setActive={() => dispatch(setIsModalOpen(true))}
                     setImg={() => dispatch(setPreviewImg(mokieApi[el].image))}
+                    isFavorite={mokieApi[el].isFavorite}
                   ></AverageCard>
                   <PreviewPopUp
                     active={isModalOpen}
@@ -75,8 +76,8 @@ export const CardPost: React.FC = () => {
               {[4, 5, 6].map((el) => (
                 <StyledLink to={`/posts/${el + 1}`}>
                   <AverageCard
-                    id={mokieApi[el].id}
                     key={mokieApi[el].id}
+                    id={mokieApi[el].id}
                     image={<img src={mokieApi[el].image} alt="astronaut"></img>}
                     text={<div>{mokieApi[el].text}</div>}
                     date={<div>{mokieApi[el].date}</div>}
@@ -84,6 +85,7 @@ export const CardPost: React.FC = () => {
                     LikeDislike={LikeDislike}
                     setActive={() => dispatch(setIsModalOpen(true))}
                     setImg={() => dispatch(setPreviewImg(mokieApi[el].image))}
+                    isFavorite={mokieApi[el].isFavorite}
                   ></AverageCard>
                   <PreviewPopUp
                     active={isModalOpen}
@@ -124,8 +126,8 @@ export const CardPost: React.FC = () => {
           {[7, 8, 9, 10, 11, 12].map((el) => (
             <StyledLink to={`/posts/${el + 1}`}>
               <SmallCard
-                id={mokieApi[el].id}
                 key={mokieApi[el].id}
+                id={mokieApi[el].id}
                 image={<img src={mokieApi[el].image} alt="astronaut"></img>}
                 text={<div>{mokieApi[el].text}</div>}
                 date={<div>{mokieApi[el].date}</div>}
@@ -133,6 +135,7 @@ export const CardPost: React.FC = () => {
                 LikeDislike={LikeDislike}
                 setActive={() => dispatch(setIsModalOpen(true))}
                 setImg={() => dispatch(setPreviewImg(mokieApi[el].image))}
+                isFavorite={mokieApi[el].isFavorite}
               ></SmallCard>
               <PreviewPopUp
                 active={isModalOpen}
