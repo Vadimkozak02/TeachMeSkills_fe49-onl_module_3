@@ -59,7 +59,7 @@ const Main = styled.main`
 `;
 
 const BackLinkContainer = styled.div`
-  width: 100%;
+  width: 50px;
   height: 50px;
   text-align: start;
 `;

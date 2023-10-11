@@ -9,6 +9,8 @@ import {
 } from './sign-up-form.slice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { register } from '../auth/registration.slice';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const SignUpForm: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -20,6 +22,15 @@ export const SignUpForm: React.FC = () => {
   const confirmPassword = useAppSelector(
     ({ signUpForm }) => signUpForm.confirmPassword
   );
+
+  const isCompleted = useAppSelector((state) => state.registration.isCompleted);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isCompleted) {
+      navigate('/sign-up-success');
+    }
+  }, [isCompleted, navigate]);
 
   return (
     <SignUpWrapper>
@@ -64,7 +75,9 @@ export const SignUpForm: React.FC = () => {
         />
         <Button
           variant="primary"
-          onClick={() => dispatch(register({ username: name, password }))}
+          onClick={() =>
+            dispatch(register({ username: name, password, email }))
+          }
         >
           Sign Up
         </Button>

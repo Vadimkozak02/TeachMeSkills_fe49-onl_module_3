@@ -1,12 +1,24 @@
 import { Button } from '#ui/button';
 import { Input } from '#ui/input/input';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { authorization } from '../auth/authorization.slice';
+import { Navigate } from 'react-router-dom';
 
 export const SignInForm: React.FC = () => {
   const [email, setEmail] = useState('');
 
   const [password, setPassword] = useState('');
+
+  const isCompleted = useAppSelector(
+    (state) => state.authorization.isInCompleted
+  );
+  const dispatch = useAppDispatch();
+
+  if (isCompleted) {
+    return <Navigate to="/posts" />;
+  }
 
   return (
     <SignInWrapper>
@@ -31,7 +43,10 @@ export const SignInForm: React.FC = () => {
           <ForgotLink href="#">Forgot password?</ForgotLink>
         </ForgotLinkWrapper>
 
-        <Button variant="primary" onClick={() => console.log('hi')}>
+        <Button
+          variant="primary"
+          onClick={() => dispatch(authorization({ email, password }))}
+        >
           Sign In
         </Button>
         <SignUpLinkWrapper>

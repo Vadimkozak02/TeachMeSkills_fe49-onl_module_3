@@ -12,6 +12,7 @@ type Props = {
   lesson_num?: React.ReactNode;
   title: React.ReactNode;
   author?: React.ReactNode;
+  description?: React.ReactNode;
   LikeDislike: React.ComponentType<{ postId: number }>;
   isFavorite: boolean;
   setActive: () => void;
@@ -63,7 +64,11 @@ export const AverageCard: React.FC<Props> = ({
 
 const AverageCardWrapper = styled.div`
   width: 352px;
+  min-height: 452px;
   background-color: var(--background-primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const CardTopWrapper = styled.div`
@@ -94,10 +99,14 @@ const CardTitle = styled.h1`
 
 const CardImgWrapper = styled.div`
   margin-bottom: 17px;
+  width: 352px;
+  height: 246px;
 
   img {
+    object-fit: cover;
     width: 100%;
     height: 100%;
+    object-position: center;
   }
 `;
 

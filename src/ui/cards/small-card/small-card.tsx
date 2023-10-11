@@ -62,12 +62,17 @@ export const SmallCard: React.FC<Props> = ({
 
 const BigCardWrapper = styled.div`
   width: 352px;
+  height: 206px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--background-primary-color);
 `;
 
 const CardTopWrapper = styled.div`
   display: flex;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
+  justify-content: space-between;
 `;
 
 const CardTextWrapper = styled.div``;

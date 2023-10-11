@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { Tabs } from '../../features/tabs/Tabs';
-import { CardPost } from '../cards-post/card-post';
+import { CardPost } from '../../features/all-posts/all-posts';
 import LeftArrow from '../templates/arrow-img/arrow-left.svg';
 import RightArrow from '../templates/arrow-img/arrow-right.svg';
 import { HeaderMenu } from '../../features/header-menu/header-menu';
 import { useAppSelector } from '../../hooks';
 import { FavoriteCards } from '#ui/cards/favorite-card/favorite-cards';
+import { Link } from 'react-router-dom';
 
 export const Blog: React.FC = () => {
   const isActive = useAppSelector((state) => state.tabs.activeTab);
@@ -14,7 +15,12 @@ export const Blog: React.FC = () => {
     <BlogBg>
       <HeaderMenu></HeaderMenu>
       <BlogWrapper>
-        <BlogTitle>Blog</BlogTitle>
+        <BlogTitleWrapper>
+          <BlogTitle>Blog</BlogTitle>
+          <Link to="/add-new-post">
+            <AddNewPostBtn>Add post</AddNewPostBtn>
+          </Link>
+        </BlogTitleWrapper>
         <BlogTabs>
           <Tabs />
         </BlogTabs>
@@ -71,10 +77,34 @@ const BlogWrapper = styled.div`
   width: 1120px;
   margin: auto;
 `;
+
+const BlogTitleWrapper = styled.div`
+  width: 1120px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+`;
+
 const BlogTitle = styled.h1`
   color: var(--text-primary-color);
   margin: 50px 0 0;
 `;
+
+const AddNewPostBtn = styled.button`
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--burger-backkgorund-color);
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--burger-hover-bg-color);
+  }
+`;
+
 const BlogTabs = styled.div`
   margin-bottom: 20px;
 `;

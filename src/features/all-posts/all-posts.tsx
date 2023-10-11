@@ -1,23 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { AverageCard } from '../cards/average-card/average-card';
-import { SmallCard } from '../cards/small-card/small-card';
-import { LikeDislike } from '../../features/like-dislike/like-dislike';
+import { AverageCard } from '../../ui/cards/average-card/average-card';
+import { SmallCard } from '../../ui/cards/small-card/small-card';
+import { LikeDislike } from '../like-dislike/like-dislike';
 import { mokieApi } from '../../mokie.api';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import {
   setIsModalOpen,
   setPreviewImg,
-} from '../../features/preview-pop-up/preview-pop-up.slice';
+} from '../preview-pop-up/preview-pop-up.slice';
 import closeBtn from '../../ui/menu/img/close_menu.svg';
 
-import { PreviewPopUp } from '../../features/preview-pop-up/preview-pop-up';
+import { PreviewPopUp } from '../preview-pop-up/preview-pop-up';
+import { getAllPosts, getAllPostsSuccess } from './all-post.slice';
 
 export const CardPost: React.FC = () => {
   const dispatch = useAppDispatch();
   const isModalOpen = useAppSelector((state) => state.previewPopUp.isModalOpen);
   const previewImg = useAppSelector((state) => state.previewPopUp.image);
+  const data = useAppSelector((state) => state.allPost.allPost);
+  const newData = data;
+  const smallCardData = data.concat(newData);
+
+  useEffect(() => {
+    dispatch(
+      getAllPosts({ limit: 3, offset: 0, ordering: 'asc', search: 'post' })
+    );
+  }, []);
 
   return (
     <CardPostW>
@@ -25,19 +35,19 @@ export const CardPost: React.FC = () => {
         <PostLeft>
           <LeftBottomWrapper>
             <LeftTop>
-              {[1, 2, 3].map((el) => (
-                <StyledLink to={`/posts/${el + 1}`}>
+              {data.map((el) => (
+                <StyledLink to={`/posts/${el}`}>
                   <AverageCard
-                    key={mokieApi[el].id}
-                    id={mokieApi[el].id}
-                    image={<img src={mokieApi[el].image} alt="astronaut"></img>}
-                    text={<div>{mokieApi[el].text}</div>}
-                    date={<div>{mokieApi[el].date}</div>}
-                    title={<div>{mokieApi[el].title}</div>}
+                    key={el.id}
+                    id={el.id}
+                    image={<img src={el.image} alt="astronaut"></img>}
+                    text={<div>{el.text}</div>}
+                    date={<div>{el.date}</div>}
+                    title={<div>{el.title}</div>}
                     LikeDislike={LikeDislike}
                     setActive={() => dispatch(setIsModalOpen(true))}
-                    setImg={() => dispatch(setPreviewImg(mokieApi[el].image))}
-                    isFavorite={mokieApi[el].isFavorite}
+                    setImg={() => dispatch(setPreviewImg(el.image))}
+                    isFavorite={mokieApi[0].isFavorite}
                   ></AverageCard>
                   <PreviewPopUp
                     active={isModalOpen}
@@ -73,19 +83,19 @@ export const CardPost: React.FC = () => {
               ))}
             </LeftTop>
             <LeftBottom>
-              {[4, 5, 6].map((el) => (
-                <StyledLink to={`/posts/${el + 1}`}>
+              {data.map((el) => (
+                <StyledLink to={`/posts/${el}`}>
                   <AverageCard
-                    key={mokieApi[el].id}
-                    id={mokieApi[el].id}
-                    image={<img src={mokieApi[el].image} alt="astronaut"></img>}
-                    text={<div>{mokieApi[el].text}</div>}
-                    date={<div>{mokieApi[el].date}</div>}
-                    title={<div>{mokieApi[el].title}</div>}
+                    key={el.id}
+                    id={el.id}
+                    image={<img src={el.image} alt="astronaut"></img>}
+                    text={<div>{el.text}</div>}
+                    date={<div>{el.date}</div>}
+                    title={<div>{el.title}</div>}
                     LikeDislike={LikeDislike}
                     setActive={() => dispatch(setIsModalOpen(true))}
-                    setImg={() => dispatch(setPreviewImg(mokieApi[el].image))}
-                    isFavorite={mokieApi[el].isFavorite}
+                    setImg={() => dispatch(setPreviewImg(el.image))}
+                    isFavorite={mokieApi[1].isFavorite}
                   ></AverageCard>
                   <PreviewPopUp
                     active={isModalOpen}
@@ -123,19 +133,19 @@ export const CardPost: React.FC = () => {
           </LeftBottomWrapper>
         </PostLeft>
         <div>
-          {[7, 8, 9, 10, 11, 12].map((el) => (
-            <StyledLink to={`/posts/${el + 1}`}>
+          {smallCardData.map((el) => (
+            <StyledLink to={`/posts/${el}`}>
               <SmallCard
-                key={mokieApi[el].id}
-                id={mokieApi[el].id}
-                image={<img src={mokieApi[el].image} alt="astronaut"></img>}
-                text={<div>{mokieApi[el].text}</div>}
-                date={<div>{mokieApi[el].date}</div>}
-                title={<div>{mokieApi[el].title}</div>}
+                key={el.id}
+                id={el.id}
+                image={<img src={el.image} alt="astronaut"></img>}
+                text={<div>{el.text}</div>}
+                date={<div>{el.date}</div>}
+                title={<div>{el.title}</div>}
                 LikeDislike={LikeDislike}
                 setActive={() => dispatch(setIsModalOpen(true))}
-                setImg={() => dispatch(setPreviewImg(mokieApi[el].image))}
-                isFavorite={mokieApi[el].isFavorite}
+                setImg={() => dispatch(setPreviewImg(el.image))}
+                isFavorite={mokieApi[2].isFavorite}
               ></SmallCard>
               <PreviewPopUp
                 active={isModalOpen}
@@ -187,6 +197,11 @@ const PostWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: var(--background-primary-color);
+`;
+
+const AddNewPostBtn = styled.button`
+  width: 100px;
+  height: 50px;
 `;
 
 const PostLeft = styled.div`

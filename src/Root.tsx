@@ -8,7 +8,10 @@ import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import { ResultOfSearch } from './pages/resultOfSearch';
-import { PreviewPopUp } from './features/preview-pop-up/preview-pop-up';
+import { SuccessForm } from './features/success-form/success-form';
+import { Success } from './pages/success';
+import { ActivatePage } from './pages/activate';
+import { AddNewPost } from './pages/add-new-post';
 
 function Root() {
   return (
@@ -18,9 +21,13 @@ function Root() {
           <Route path="/" element={<Blog />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up-success" element={<SuccessForm />} />
           <Route path="/posts" element={<Blog />} />
           <Route path="/posts/:postId" element={<SelectedPost />}></Route>
           <Route path="/resultOfSearch" element={<ResultOfSearch />} />
+          <Route path="/activate/:uid/:token" element={<ActivatePage />} />
+          <Route path="/activate/success" element={<Success />} />
+          <Route path="/add-new-post" element={<AddNewPost />} />
         </Routes>
       </div>
     </Provider>
