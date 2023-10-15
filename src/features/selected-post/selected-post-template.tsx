@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
-import Bookmark from '../cards/card-img/bookmark.svg';
-import BookmarkSolid from '../cards/card-img/bookmark-solid.svg';
-import LeftArrow from './arrow-img/arrow-left.svg';
-import RightArrow from './arrow-img/arrow-right.svg';
-import { LikeDislike } from '../../features/like-dislike/like-dislike';
-import { BackLink } from '../../features/back-link/back-link';
+import Bookmark from '../../ui/cards/card-img/bookmark.svg';
+import BookmarkSolid from '../../ui/cards/card-img/bookmark-solid.svg';
+import LeftArrow from '../../ui/templates/arrow-img/arrow-left.svg';
+import RightArrow from '../../ui/templates/arrow-img/arrow-right.svg';
+import { LikeDislike } from '../like-dislike/like-dislike';
+import { BackLink } from '../back-link/back-link';
 
 type Props = {
   id: number;

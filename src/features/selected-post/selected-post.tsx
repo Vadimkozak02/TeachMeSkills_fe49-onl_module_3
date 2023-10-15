@@ -1,4 +1,4 @@
-import { SelectedPostTemplate } from '#ui/templates/selected-post-template';
+import { SelectedPostTemplate } from './selected-post-template';
 import { Link, Navigate } from 'react-router-dom';
 import { LikeDislike } from '../like-dislike/like-dislike';
 import { HeaderMenu } from '../header-menu/header-menu';
