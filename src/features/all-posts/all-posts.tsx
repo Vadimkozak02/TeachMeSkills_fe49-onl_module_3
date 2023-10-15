@@ -4,7 +4,7 @@ import { AverageCard } from '../../ui/cards/average-card/average-card';
 import { SmallCard } from '../../ui/cards/small-card/small-card';
 import { LikeDislike } from '../like-dislike/like-dislike';
 import { mokieApi } from '../../mokie.api';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import {
   setIsModalOpen,
@@ -13,7 +13,8 @@ import {
 import closeBtn from '../../ui/menu/img/close_menu.svg';
 
 import { PreviewPopUp } from '../preview-pop-up/preview-pop-up';
-import { getAllPosts, getAllPostsSuccess } from './all-post.slice';
+import { getAllPosts } from './all-post.slice';
+import { setSelectedPost } from '../selected-post/selected-post.slice';
 
 export const CardPost: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -22,7 +23,6 @@ export const CardPost: React.FC = () => {
   const data = useAppSelector((state) => state.allPost.allPost);
   const newData = data;
   const smallCardData = data.concat(newData);
-
   useEffect(() => {
     dispatch(
       getAllPosts({ limit: 3, offset: 0, ordering: 'asc', search: 'post' })
@@ -36,7 +36,7 @@ export const CardPost: React.FC = () => {
           <LeftBottomWrapper>
             <LeftTop>
               {data.map((el) => (
-                <StyledLink to={`/posts/${el}`}>
+                <StyledLink to={`/posts/${el.id}`}>
                   <AverageCard
                     key={el.id}
                     id={el.id}
@@ -48,6 +48,7 @@ export const CardPost: React.FC = () => {
                     setActive={() => dispatch(setIsModalOpen(true))}
                     setImg={() => dispatch(setPreviewImg(el.image))}
                     isFavorite={mokieApi[0].isFavorite}
+                    openSelectedPost={() => dispatch(setSelectedPost(el.id))}
                   ></AverageCard>
                   <PreviewPopUp
                     active={isModalOpen}
@@ -84,7 +85,7 @@ export const CardPost: React.FC = () => {
             </LeftTop>
             <LeftBottom>
               {data.map((el) => (
-                <StyledLink to={`/posts/${el}`}>
+                <StyledLink to={`/posts/${el.id}`}>
                   <AverageCard
                     key={el.id}
                     id={el.id}
@@ -96,6 +97,7 @@ export const CardPost: React.FC = () => {
                     setActive={() => dispatch(setIsModalOpen(true))}
                     setImg={() => dispatch(setPreviewImg(el.image))}
                     isFavorite={mokieApi[1].isFavorite}
+                    openSelectedPost={() => dispatch(setSelectedPost(el.id))}
                   ></AverageCard>
                   <PreviewPopUp
                     active={isModalOpen}
@@ -134,7 +136,7 @@ export const CardPost: React.FC = () => {
         </PostLeft>
         <div>
           {smallCardData.map((el) => (
-            <StyledLink to={`/posts/${el}`}>
+            <StyledLink to={`/posts/${el.id}`}>
               <SmallCard
                 key={el.id}
                 id={el.id}
@@ -146,6 +148,7 @@ export const CardPost: React.FC = () => {
                 setActive={() => dispatch(setIsModalOpen(true))}
                 setImg={() => dispatch(setPreviewImg(el.image))}
                 isFavorite={mokieApi[2].isFavorite}
+                openSelectedPost={() => dispatch(setSelectedPost(el.id))}
               ></SmallCard>
               <PreviewPopUp
                 active={isModalOpen}
@@ -238,11 +241,16 @@ const PreviewWrapper = styled.div`
 
 const PreviewCloseBtnWrapper = styled.div`
   margin: auto;
-  width: 50%;
+  margin-left: 20%;
 `;
 const PreviewCloseBtn = styled.button`
   margin: auto;
   border: none;
+
+  img {
+    width: 400px;
+    height: 300px;
+  }
 `;
 
 const PreviewImgWrapper = styled.div`

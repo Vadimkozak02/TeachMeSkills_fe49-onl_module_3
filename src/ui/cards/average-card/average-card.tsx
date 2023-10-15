@@ -17,6 +17,7 @@ type Props = {
   isFavorite: boolean;
   setActive: () => void;
   setImg: () => void;
+  openSelectedPost: () => void;
 };
 
 export const AverageCard: React.FC<Props> = ({
@@ -24,9 +25,10 @@ export const AverageCard: React.FC<Props> = ({
   image,
   date,
   title,
+  isFavorite,
   setActive,
   setImg,
-  isFavorite,
+  openSelectedPost,
 }) => {
   const isOpen = useAppSelector((state) => state.previewPopUp.isModalOpen);
   const favoritesCards = useAppSelector((state) => state.activeBookmark);
@@ -43,7 +45,7 @@ export const AverageCard: React.FC<Props> = ({
         <CardImgButton onClick={() => setActive()}>{image}</CardImgButton>
       </CardImgWrapper>
       <CardTopWrapper>
-        <CardTextWrapper>
+        <CardTextWrapper onClick={() => openSelectedPost()}>
           <CardDate>{date}</CardDate>
           <CardTitle>{title}</CardTitle>
         </CardTextWrapper>

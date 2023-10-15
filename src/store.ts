@@ -13,6 +13,7 @@ import { activationReducer } from './features/auth/activation.slice';
 import { authorizationReducer } from './features/auth/authorization.slice';
 import { allPostReducer } from './features/all-posts/all-post.slice';
 import { AddNewPostReducer } from './features/add-new-post/add-new-post.slice';
+import { SelectedPostReducer } from './features/selected-post/selected-post.slice';
 // import { IsFavoriteReducer } from './features/activeBookmark/isFavorite.slice';
 
 let sagaMiddleware = createSagaMiddleware();
@@ -30,6 +31,7 @@ export const store = configureStore({
     likeDislike: likeDislikeReducer,
     previewPopUp: previewPopUpReducer,
     registration: registrationReducer,
+    selectedPost: SelectedPostReducer,
     signUpForm: signUpFormSliceReducer,
     tabs: TabsSliceReducer,
   },

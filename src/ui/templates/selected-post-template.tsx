@@ -133,12 +133,14 @@ const CardText = styled.div`
 
 const CardImgWrapper = styled.div`
   width: 800px;
-  max-height: 400px;
+  /* max-height: 400px; */
   margin: 20px auto;
   display: flex;
 
   img {
     margin: auto;
+    width: 100%;
+    height: 100%;
   }
 `;
 

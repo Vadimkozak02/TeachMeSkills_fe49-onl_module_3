@@ -15,6 +15,7 @@ type Props = {
   isFavorite: boolean;
   setActive: () => void;
   setImg: () => void;
+  openSelectedPost: () => void;
 };
 
 export const SmallCard: React.FC<Props> = ({
@@ -22,16 +23,17 @@ export const SmallCard: React.FC<Props> = ({
   image,
   date,
   title,
+  isFavorite,
   setActive,
   setImg,
-  isFavorite,
+  openSelectedPost,
 }) => {
   // const [activeBookmark, setActiveBookmark] = useState(false);
 
   return (
     <BigCardWrapper>
       <CardTopWrapper>
-        <CardTextWrapper>
+        <CardTextWrapper onClick={() => openSelectedPost()}>
           <CardDate>{date}</CardDate>
           <CardTitle>{title}</CardTitle>
         </CardTextWrapper>

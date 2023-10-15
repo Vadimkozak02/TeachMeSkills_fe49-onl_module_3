@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { TypeOfMockie } from '../../mokie.api';
 import { AllPostsResponse, AllPostsType } from './types';
 
-type TypeOfArray = {
+export type TypeOfArray = {
   id: number;
   image: string;
   text: string;
@@ -22,9 +22,13 @@ const allPostSlice = createSlice({
       state.isLoading = true;
     },
     getAllPostsSuccess(state, action: { payload: { data: AllPostsResponse } }) {
+      state.isLoading = false;
       const data = action.payload;
       const allPostsFromApi = data.data.results;
       state.allPost = allPostsFromApi;
+    },
+    setSelectedPostFailure(state) {
+      state.isLoading = false;
     },
   },
 });

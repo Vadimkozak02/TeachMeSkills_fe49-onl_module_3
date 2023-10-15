@@ -6,6 +6,7 @@ import {
   setPreviewImg,
 } from '../../../features/preview-pop-up/preview-pop-up.slice';
 import { LikeDislike } from '../../../features/like-dislike/like-dislike';
+import { setSelectedPost } from '../../../features/selected-post/selected-post.slice';
 
 export const FavoriteCards: React.FC = () => {
   const favoritesCards = useAppSelector((state) => state.activeBookmark.arr);
@@ -26,6 +27,7 @@ export const FavoriteCards: React.FC = () => {
           setActive={() => dispatch(setIsModalOpen(true))}
           setImg={() => dispatch(setPreviewImg(el.image))}
           isFavorite={el.isFavorite}
+          openSelectedPost={() => dispatch(setSelectedPost(el.id))}
         />
       ))}
     </div>

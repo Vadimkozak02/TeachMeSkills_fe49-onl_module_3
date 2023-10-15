@@ -2,7 +2,7 @@ import './App.css';
 import { SignIn } from './pages/sign-in';
 import { SignUp } from './pages/sign-up';
 // import { Success } from './pages/success';
-import { SelectedPost } from './pages/selected-post';
+import { SelectedPost } from './features/selected-post/selected-post';
 import { Blog } from '#ui/blog/blog';
 import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';

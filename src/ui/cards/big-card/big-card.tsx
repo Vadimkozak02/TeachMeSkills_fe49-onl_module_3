@@ -14,6 +14,7 @@ type Props = {
   LikeDislike: React.ComponentType<{ postId: number }>;
   setActive: () => void;
   setImg: () => void;
+  openSelectedPost: () => void;
 };
 
 export const BigCard: React.FC<Props> = ({
@@ -26,11 +27,12 @@ export const BigCard: React.FC<Props> = ({
   LikeDislike,
   setActive,
   setImg,
+  openSelectedPost,
 }) => {
   return (
     <BigCardWrapper>
       <CardTopWrapper>
-        <CardTextWrapper>
+        <CardTextWrapper onClick={() => openSelectedPost()}>
           <CardDate>{date}</CardDate>
           <CardTitle>{title}</CardTitle>
           <CardText>{text}</CardText>
