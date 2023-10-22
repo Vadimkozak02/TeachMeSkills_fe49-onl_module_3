@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { AverageCard } from '../../ui/cards/average-card/average-card';
 import { SmallCard } from '../../ui/cards/small-card/small-card';
 import { LikeDislike } from '../like-dislike/like-dislike';
 import { mokieApi } from '../../mokie.api';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import {
   setIsModalOpen,
@@ -15,19 +15,43 @@ import closeBtn from '../../ui/menu/img/close_menu.svg';
 import { PreviewPopUp } from '../preview-pop-up/preview-pop-up';
 import { getAllPosts } from './all-post.slice';
 import { setSelectedPost } from '../selected-post/selected-post.slice';
+import { Pagination } from '#ui/pagination/pagination';
 
 export const CardPost: React.FC = () => {
   const dispatch = useAppDispatch();
   const isModalOpen = useAppSelector((state) => state.previewPopUp.isModalOpen);
   const previewImg = useAppSelector((state) => state.previewPopUp.image);
   const data = useAppSelector((state) => state.allPost.allPost);
+  const pageCount = useAppSelector((state) => state.allPost.count);
   const newData = data;
   const smallCardData = data.concat(newData);
+  const elementsPerPage = 3;
+  const [params] = useSearchParams();
+  const [currentPage, setCurrentPage] = useState(
+    (Number(params.get('offset')) || 0) / elementsPerPage + 1
+  );
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams();
+    const limit = elementsPerPage;
+    const offset = (currentPage - 1) * elementsPerPage;
+    searchParams.set('limit', limit.toString());
+    searchParams.set('offset', offset.toString());
+    navigate('/posts?' + searchParams.toString());
+  }, [currentPage]);
+
   useEffect(() => {
     dispatch(
-      getAllPosts({ limit: 3, offset: 0, ordering: 'asc', search: 'post' })
+      getAllPosts({
+        limit: elementsPerPage,
+        offset: Number(params.get('offset')) || 0,
+        ordering: 'asc',
+        search: 'post',
+      })
     );
-  }, []);
+  }, [params]);
 
   return (
     <CardPostW>
@@ -183,6 +207,11 @@ export const CardPost: React.FC = () => {
           ))}
         </div>
       </PostWrapper>
+      <Pagination
+        currentPage={currentPage}
+        pageCount={pageCount}
+        onPageChange={(x) => setCurrentPage(x)}
+      />
     </CardPostW>
   );
 };

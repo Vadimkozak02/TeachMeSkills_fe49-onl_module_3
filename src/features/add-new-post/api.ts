@@ -8,6 +8,9 @@ export const api = {
     const formData = new FormData();
     formData.set('title', payload.title);
     formData.set('text', payload.text);
+    Object.entries(payload).forEach(([key, value]) =>
+      formData.set(key, typeof value === 'number' ? value.toString() : value)
+    );
 
     return request(baseUrl + 'blog/posts/', {
       method: 'POST',

@@ -15,9 +15,9 @@ type Props = {
 export const LikeDislike: React.FC<Props> = ({ postId }) => {
   const dispatch = useAppDispatch();
   const rating = useAppSelector((state) => state.likeDislike[postId]);
-  const activeLike = rating.userChoice === 'like';
+  const activeLike = rating?.userChoice === 'like';
 
-  const activeDislike = rating.userChoice === 'dislike';
+  const activeDislike = rating?.userChoice === 'dislike';
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,7 +38,7 @@ export const LikeDislike: React.FC<Props> = ({ postId }) => {
         >
           <LikeWrapper>
             <LikeImg src={activeLike ? LikeBlack : LikeWhite} alt="like" />
-            <LikeCount>{rating.likes}</LikeCount>
+            <LikeCount>{rating?.likes}</LikeCount>
           </LikeWrapper>
         </FooterLike>
         <FooterDislike
@@ -51,7 +51,7 @@ export const LikeDislike: React.FC<Props> = ({ postId }) => {
               src={activeDislike ? DislikeBlack : Dislike}
               alt="dislike"
             />
-            <DislikeCount>{rating.dislikes}</DislikeCount>
+            <DislikeCount>{rating?.dislikes}</DislikeCount>
           </DislikeWrapper>
         </FooterDislike>
       </FooterLikeWrapper>

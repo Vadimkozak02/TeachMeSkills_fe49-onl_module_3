@@ -12,6 +12,7 @@ import { SuccessForm } from './features/success-form/success-form';
 import { Success } from './pages/success';
 import { ActivatePage } from './pages/activate';
 import { AddNewPost } from './pages/add-new-post';
+import { MyPosts } from './features/myPosts/my-posts';
 
 function Root() {
   return (
@@ -28,6 +29,7 @@ function Root() {
           <Route path="/activate/:uid/:token" element={<ActivatePage />} />
           <Route path="/activate/success" element={<Success />} />
           <Route path="/add-new-post" element={<AddNewPost />} />
+          <Route path="/my-posts" element={<MyPosts />} />
         </Routes>
       </div>
     </Provider>

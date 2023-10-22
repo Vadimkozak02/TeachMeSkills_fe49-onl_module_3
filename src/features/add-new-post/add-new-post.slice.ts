@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { AddNewPostType } from './types';
 
 const AddNewPostSlice = createSlice({
   name: 'AddNewPostSlice',
@@ -7,7 +8,7 @@ const AddNewPostSlice = createSlice({
     isCompleted: false,
   },
   reducers: {
-    addNewPost(state, action) {
+    addNewPost(state, action: { payload: AddNewPostType }) {
       state.isInProgress = true;
     },
     addNewPostSuccess(state) {

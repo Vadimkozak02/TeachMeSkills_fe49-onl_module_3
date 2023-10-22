@@ -14,6 +14,7 @@ export type TypeOfArray = {
 const allPostSlice = createSlice({
   name: 'allPostSlice',
   initialState: {
+    count: 3,
     allPost: [] as TypeOfArray[],
     isLoading: false,
   },
@@ -25,6 +26,7 @@ const allPostSlice = createSlice({
       state.isLoading = false;
       const data = action.payload;
       const allPostsFromApi = data.data.results;
+      state.count = data.data.count;
       state.allPost = allPostsFromApi;
     },
     setSelectedPostFailure(state) {

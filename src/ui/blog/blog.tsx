@@ -7,6 +7,7 @@ import { HeaderMenu } from '../../features/header-menu/header-menu';
 import { useAppSelector } from '../../hooks';
 import { FavoriteCards } from '#ui/cards/favorite-card/favorite-cards';
 import { Link } from 'react-router-dom';
+import { Pagination } from '#ui/pagination/pagination';
 
 export const Blog: React.FC = () => {
   const isActive = useAppSelector((state) => state.tabs.activeTab);
@@ -25,37 +26,21 @@ export const Blog: React.FC = () => {
           <Tabs />
         </BlogTabs>
         {isActive === '2' ? <FavoriteCards /> : <CardPost></CardPost>}
-        <BlogOtherPages>
+        {/* <BlogOtherPages>
           <BlogLeftArrow>
             <LefrArrowBtn>
               <img src={LeftArrow} alt="left-arrow"></img>
               <LeftArrowText>Prev</LeftArrowText>
             </LefrArrowBtn>
           </BlogLeftArrow>
-          <OtherPage>
-            <PageOne>
-              <PageOneLink href="#">1</PageOneLink>
-            </PageOne>
-            <PageTwo>
-              <PageTwoLink href="#">2</PageTwoLink>
-            </PageTwo>
-            <PageThree>
-              <PageThreeLink href="#">3</PageThreeLink>
-            </PageThree>
-            <PageFour>
-              <PageFourLink href="#">...</PageFourLink>
-            </PageFour>
-            <PageEight>
-              <PageEightLink href="#">8</PageEightLink>
-            </PageEight>
-          </OtherPage>
+          
           <BlogRightArrow>
             <RightArrowBtn>
               <RightArrowText>Next</RightArrowText>
               <img src={RightArrow} alt="right-arrow"></img>
             </RightArrowBtn>
           </BlogRightArrow>
-        </BlogOtherPages>
+        </BlogOtherPages> */}
         <BlogFooter>
           <FooterYear>
             <FooterTextWrapper>

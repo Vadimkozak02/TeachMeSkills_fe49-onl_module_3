@@ -11,27 +11,26 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setIsOpen } from './header-menu.slice';
 
-let users = [
-  {
-    id: 1,
-    fullName: 'Artem Malkin',
-  },
-];
+// let users = [
+//   {
+//     id: 1,
+//     fullName: 'Artem Malkin',
+//   },
+// ];
 
-let nameOfUsers = users.map((item) => item.fullName.split(' '));
-let initials = nameOfUsers.map((item) => item[0].charAt(0) + item[1].charAt(0));
-
-// type TypeOfHeaderMunu = {
-//   isActive?: boolean;
-// };
+// let nameOfUsers = users.map((item) => item.fullName.split(' '));
+// let initials = nameOfUsers.map((item) => item[0].charAt(0) + item[1].charAt(0));
 
 export const HeaderMenu: React.FC = () => {
   const dispatch = useAppDispatch();
   const isOpened = useAppSelector((state) => state.headerMenu.isOpened);
 
-  // const [isOpened, setIsOpen] = useState(false);
   const [searchActive, setSearchAactive] = useState(false);
   const [isActive, setIsActive] = useState(true);
+
+  const userInfo = useAppSelector((state) => state.aboutUser.name);
+  const userName = userInfo.username;
+  console.log('userName', userName);
 
   return (
     <>
@@ -67,16 +66,16 @@ export const HeaderMenu: React.FC = () => {
             <BurgerPesonWrap>
               <BurgerPersonInitialsWrapper>
                 <BurgerPersonInitials>
-                  {initials.map((item, index) => (
-                    <div key={index}>{item}</div>
-                  ))}
+                  {userName ? (
+                    <div>{userName}</div>
+                  ) : (
+                    <div>
+                      <PersonImg src={personLogo} alt="userImg"></PersonImg>
+                    </div>
+                  )}
                 </BurgerPersonInitials>
               </BurgerPersonInitialsWrapper>
-              <PersonName>
-                {users.map(({ id, fullName }) => (
-                  <li key={id}>{fullName}</li>
-                ))}
-              </PersonName>
+              {/* <PersonName>{<li>{userName}</li>}</PersonName> */}
             </BurgerPesonWrap>
           )}
         </MenuPersonWrap>
@@ -87,27 +86,37 @@ export const HeaderMenu: React.FC = () => {
             <BurgerPesonWrap>
               <BurgerPersonInitialsWrapper>
                 <BurgerPersonInitials>
-                  {initials.map((item, index) => (
-                    <div key={index}>{item}</div>
-                  ))}
+                  {userName ? (
+                    <div>{userName}</div>
+                  ) : (
+                    <div>
+                      <PersonImg src={personLogo} alt="userImg"></PersonImg>
+                    </div>
+                  )}
                 </BurgerPersonInitials>
               </BurgerPersonInitialsWrapper>
-              <PersonName>
-                {users.map(({ id, fullName }) => (
-                  <li key={id}>{fullName}</li>
-                ))}
-              </PersonName>
+              {/* <PersonName>{<div>{userName}</div>}</PersonName> */}
             </BurgerPesonWrap>
-            <BurgerHomeBtn>
+            <BurgerHomeBtn onClick={() => dispatch(setIsOpen(!isOpened))}>
               <BackLink />
             </BurgerHomeBtn>
-            <BurgerAddPostBtn>Add post</BurgerAddPostBtn>
+            <Link
+              to="/add-new-post"
+              onClick={() => dispatch(setIsOpen(!isOpened))}
+            >
+              <BurgerAddPostBtn>Add post</BurgerAddPostBtn>
+            </Link>
           </BurgerTop>
 
           <BurgerButtom>
             <ThemeSwitcher></ThemeSwitcher>
-            <LogOutWrapper onClick={() => setIsActive(!isActive)}>
-              {isActive ? 'Log Out' : <Link to="/sign-in">Sign In</Link>}
+            <LogOutWrapper
+              onClick={() => {
+                setIsActive(!isActive);
+                dispatch(setIsOpen(!isOpened));
+              }}
+            >
+              {userName ? 'Log Out' : <Link to="/sign-in">Sign In</Link>}
             </LogOutWrapper>
           </BurgerButtom>
         </BurgerWrap>
@@ -215,7 +224,6 @@ const BurgerPesonWrap = styled.div`
   display: flex;
   align-items: center;
   background-color: #0000b4;
-  border-bottom: 2px solid #2d5394;
   justify-content: center;
   padding: 10px;
 `;
@@ -223,13 +231,12 @@ const BurgerPesonWrap = styled.div`
 const BurgerPersonInitialsWrapper = styled.div`
   text-align: center;
   color: var(--text-white-color);
-  margin-right: 25px;
+  /* margin-right: 25px; */
 `;
 
 const BurgerPersonInitials = styled.div`
   width: 40px;
-  line-height: 40px;
-  background-color: var(--person-background-line);
+  line-height: 25px;
   border-radius: 3px;
 `;
 

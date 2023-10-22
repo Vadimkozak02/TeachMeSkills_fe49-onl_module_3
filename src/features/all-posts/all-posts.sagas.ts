@@ -1,5 +1,4 @@
 import { call, put, select, takeLatest } from 'typed-redux-saga';
-import { RootState } from '../../store';
 import { api } from './api';
 import { getAllPosts, getAllPostsSuccess } from './all-post.slice';
 

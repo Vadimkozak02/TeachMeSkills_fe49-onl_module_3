@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { authorization } from '../auth/authorization.slice';
 import { Navigate } from 'react-router-dom';
+import { aboutUserInfo } from '../aboutUser/aboutUser.slice';
 
 export const SignInForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -45,7 +46,10 @@ export const SignInForm: React.FC = () => {
 
         <Button
           variant="primary"
-          onClick={() => dispatch(authorization({ email, password }))}
+          onClick={() => {
+            dispatch(authorization({ email, password }));
+            dispatch(aboutUserInfo({}));
+          }}
         >
           Sign In
         </Button>
