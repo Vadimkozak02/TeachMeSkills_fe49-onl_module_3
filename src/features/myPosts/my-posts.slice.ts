@@ -17,8 +17,6 @@ export const myPostsSlice = createSlice({
       action: { payload: { data: AllPostsResponse } }
     ) => {
       state.isLoading = false;
-      console.log('action', action.payload);
-      // state.myPosts = action.payload;
     },
     myPostsFailure: (state) => {
       state.isLoading = false;

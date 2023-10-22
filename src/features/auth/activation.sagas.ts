@@ -17,10 +17,8 @@ export function* activateSaga() {
     yield put(setInProgress());
     try {
       const data = yield* call(api.activate, payload);
-      console.log(data);
       yield put(activateSuccess());
     } catch (error) {
-      console.log(error);
       yield put(activateFailure());
     }
   });

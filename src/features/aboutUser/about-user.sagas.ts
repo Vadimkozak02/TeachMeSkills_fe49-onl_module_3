@@ -3,7 +3,7 @@ import {
   aboutUserInfo,
   aboutUserInfoFailure,
   aboutUserInfoSuccess,
-} from './aboutUser.slice';
+} from './about-user.slice';
 import { api } from './api';
 
 export function* aboutUserSaga() {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { toggleFavorites } from './ActiveBookmark.slice';
+import { toggleFavorites } from './active-bookmark.slice';
 // import { SetActiveBookmark } from './isFavorite.slice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import BookmarkSolid from '../../ui/cards/card-img/bookmark-solid.svg';

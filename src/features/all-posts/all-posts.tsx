@@ -59,10 +59,9 @@ export const CardPost: React.FC = () => {
         <PostLeft>
           <LeftBottomWrapper>
             <LeftTop>
-              {data.map((el) => (
-                <StyledLink to={`/posts/${el.id}`}>
+              {data.map((el, index) => (
+                <StyledLink to={`/posts/${el.id}`} key={index}>
                   <AverageCard
-                    key={el.id}
                     id={el.id}
                     image={<img src={el.image} alt="astronaut"></img>}
                     text={<div>{el.text}</div>}
@@ -108,10 +107,9 @@ export const CardPost: React.FC = () => {
               ))}
             </LeftTop>
             <LeftBottom>
-              {data.map((el) => (
-                <StyledLink to={`/posts/${el.id}`}>
+              {data.map((el, index) => (
+                <StyledLink to={`/posts/${el.id}`} key={index}>
                   <AverageCard
-                    key={el.id}
                     id={el.id}
                     image={<img src={el.image} alt="astronaut"></img>}
                     text={<div>{el.text}</div>}
@@ -159,10 +157,9 @@ export const CardPost: React.FC = () => {
           </LeftBottomWrapper>
         </PostLeft>
         <div>
-          {smallCardData.map((el) => (
-            <StyledLink to={`/posts/${el.id}`}>
+          {smallCardData.map((el, index) => (
+            <StyledLink to={`/posts/${el.id}`} key={index}>
               <SmallCard
-                key={el.id}
                 id={el.id}
                 image={<img src={el.image} alt="astronaut"></img>}
                 text={<div>{el.text}</div>}

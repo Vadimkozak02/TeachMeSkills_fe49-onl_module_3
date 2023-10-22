@@ -7,14 +7,14 @@ import { rootSaga } from './sagas';
 import { headerMenuReducer } from './features/header-menu/header-menu.slice';
 import { previewPopUpReducer } from './features/preview-pop-up/preview-pop-up.slice';
 import { FavoriteCardsReducer } from './ui/cards/favorite-card/favorite-card.slice';
-import { ActiveBookmarkSliceReducer } from './features/activeBookmark/ActiveBookmark.slice';
+import { ActiveBookmarkSliceReducer } from './features/activeBookmark/active-bookmark.slice';
 import { registrationReducer } from './features/auth/registration.slice';
 import { activationReducer } from './features/auth/activation.slice';
 import { authorizationReducer } from './features/auth/authorization.slice';
 import { allPostReducer } from './features/all-posts/all-post.slice';
 import { AddNewPostReducer } from './features/add-new-post/add-new-post.slice';
 import { SelectedPostReducer } from './features/selected-post/selected-post.slice';
-import { aboutUserReducer } from './features/aboutUser/aboutUser.slice';
+import { aboutUserReducer } from './features/aboutUser/about-user.slice';
 import { myPostsReducer } from './features/myPosts/my-posts.slice';
 // import { IsFavoriteReducer } from './features/activeBookmark/isFavorite.slice';
 

@@ -7,7 +7,6 @@ export function* addNewPostSaga() {
   yield takeLatest(addNewPost, function* addNewPostHundler({ payload }) {
     try {
       const data = yield* call(api.addNewPost, payload);
-      console.log(data);
 
       yield put(addNewPostSuccess());
     } catch {

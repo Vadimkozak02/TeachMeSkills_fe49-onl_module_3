@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { LikeDislike } from '../../../features/like-dislike/like-dislike';
-import { ActiveBookmark } from '../../../features/activeBookmark/ActiveBookmark';
+import { ActiveBookmark } from '../../../features/activeBookmark/active-bookmark';
 
 type Props = {
   id: number;

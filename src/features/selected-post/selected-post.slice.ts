@@ -15,7 +15,6 @@ export const SelectedPostSlice = createSlice({
     setSelectedPost(state, action) {
       state.isLoading = true;
       state.selectedPost = action.payload;
-      console.log('actionPayload', action.payload);
     },
     setSelectedPostSuccess(state, action) {
       state.isLoading = false;

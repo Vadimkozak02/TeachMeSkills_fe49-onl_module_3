@@ -13,7 +13,6 @@ import {
 export const api = {
   getSelectedPosts: (payload: number): Promise<SelectResponse> => {
     const id = payload;
-    console.log('id', id);
     return request(`${baseUrl}blog/posts/${payload}`, {
       method: 'GET',
       headers: {

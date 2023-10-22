@@ -30,7 +30,6 @@ export const HeaderMenu: React.FC = () => {
 
   const userInfo = useAppSelector((state) => state.aboutUser.name);
   const userName = userInfo.username;
-  console.log('userName', userName);
 
   return (
     <>
