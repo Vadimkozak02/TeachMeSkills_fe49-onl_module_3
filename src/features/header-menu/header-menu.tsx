@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import search from '../../ui/menu/img/search.svg';
 import burgerMenu from '../../ui/menu/img/burger-menu.svg';
 import closeMenu from '../../ui/menu/img/close-btn.svg';
 import personLogo from '../../ui/menu/img/person-two.svg';
@@ -10,22 +9,12 @@ import { SignIn } from '../../pages/sign-in';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setIsOpen } from './header-menu.slice';
-
-// let users = [
-//   {
-//     id: 1,
-//     fullName: 'Artem Malkin',
-//   },
-// ];
-
-// let nameOfUsers = users.map((item) => item.fullName.split(' '));
-// let initials = nameOfUsers.map((item) => item[0].charAt(0) + item[1].charAt(0));
+import { Search } from '../search/search';
 
 export const HeaderMenu: React.FC = () => {
   const dispatch = useAppDispatch();
   const isOpened = useAppSelector((state) => state.headerMenu.isOpened);
 
-  const [searchActive, setSearchAactive] = useState(false);
   const [isActive, setIsActive] = useState(true);
 
   const userInfo = useAppSelector((state) => state.aboutUser.name);
@@ -40,22 +29,8 @@ export const HeaderMenu: React.FC = () => {
         >
           <MenuImg src={isOpened ? closeMenu : burgerMenu} alt="menu" />
         </MenuBurger>
-        <MenuSearch
-          type="input"
-          autoFocus={searchActive ? true : false}
-          placeholder={searchActive ? 'Search...' : undefined}
-          style={{
-            backgroundColor: searchActive ? '#2d5394' : '#0000b4',
-            cursor: searchActive ? 'auto' : 'not-allowed',
-          }}
-          readOnly={searchActive ? false : true}
-        ></MenuSearch>
-        <MenuSearchBtn
-          type="button"
-          onClick={() => setSearchAactive(!searchActive)}
-        >
-          <SearchImg src={search}></SearchImg>
-        </MenuSearchBtn>
+        <Search />
+
         <MenuPersonWrap style={{ width: !isActive ? '80px' : '250px' }}>
           {!isActive ? (
             <PersonLogo>
@@ -152,34 +127,6 @@ const MenuBurger = styled.button`
 
 const MenuImg = styled.img`
   width: 30px;
-`;
-
-const MenuSearch = styled.input`
-  width: 90%;
-  background-color: #2d5394;
-  border: none;
-  outline: none;
-  padding: 5px 15px;
-  font-size: 20px;
-  color: var(--text-white-color);
-
-  &::placeholder {
-    color: var(--text-white-color);
-  }
-`;
-
-const MenuSearchBtn = styled.button`
-  width: 80px;
-  min-height: 100%;
-  background-color: #0000b4;
-  border: none;
-  cursor: pointer;
-  color: var(--text-white-color);
-  border-left: 2px solid #2d5394;
-`;
-
-const SearchImg = styled.img`
-  width: 20px;
 `;
 
 const MenuPersonWrap = styled.div`

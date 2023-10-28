@@ -2,26 +2,29 @@ import styled from 'styled-components';
 
 type Props = {
   variant: 'primary' | 'secondary';
-  children: string;
+  children: string | React.ReactNode;
   disabled?: boolean;
-  onClick: () => void;
   role?: string;
+  onClick: (arg?: string) => void;
+  onFocus?: () => void;
 };
 
 export const Button: React.FC<Props> = ({
   variant,
   children,
   disabled,
-  onClick,
   role,
+  onClick,
+  onFocus,
 }) => {
   return (
     <ButtonWrapper
       type="button"
       $variant={variant}
       disabled={disabled}
-      onClick={() => onClick()}
+      onClick={() => onClick('ok')}
       role={role}
+      onFocus={() => (typeof onFocus === 'function' ? onFocus() : undefined)}
     >
       {children}
     </ButtonWrapper>

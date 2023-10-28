@@ -33,7 +33,7 @@ const searchSlice = createSlice({
   },
 });
 
-export const { search, searchSuccess, searchFailure, reset } =
-  searchSlice.actions;
-
-export const searchReducer = searchSlice.reducer;
+export const {
+  actions: { search, searchSuccess, searchFailure, reset },
+  reducer: searchReducer,
+} = searchSlice;

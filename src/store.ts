@@ -16,6 +16,7 @@ import { AddNewPostReducer } from './features/add-new-post/add-new-post.slice';
 import { SelectedPostReducer } from './features/selected-post/selected-post.slice';
 import { aboutUserReducer } from './features/aboutUser/about-user.slice';
 import { myPostsReducer } from './features/myPosts/my-posts.slice';
+import { searchReducer } from './features/search/search.slice';
 // import { IsFavoriteReducer } from './features/activeBookmark/isFavorite.slice';
 
 let sagaMiddleware = createSagaMiddleware();
@@ -35,6 +36,7 @@ export const store = configureStore({
     myPosts: myPostsReducer,
     previewPopUp: previewPopUpReducer,
     registration: registrationReducer,
+    search: searchReducer,
     selectedPost: SelectedPostReducer,
     signUpForm: signUpFormSliceReducer,
     tabs: TabsSliceReducer,

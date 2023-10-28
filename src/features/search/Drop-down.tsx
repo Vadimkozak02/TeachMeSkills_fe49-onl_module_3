@@ -42,9 +42,9 @@ const DropDownWrapper = styled.ul`
   width: 100%;
   padding: 0;
   margin: 0;
-  top: 50px;
   left: 0;
-  background-color: var(--background-secondary-button-color);
+  color: white;
+  background-color: var(--text-secondary-color);
 `;
 
 const DropDownElement = styled.li`
@@ -54,4 +54,6 @@ const DropDownElement = styled.li`
   justify-content: space-between;
   padding: 0 10px;
   height: 60px;
+  border-bottom: 1px solid var(--text-white-color);
+  cursor: pointer;
 `;

@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'typed-redux-saga';
 import { search, searchFailure, searchSuccess } from './search.slice';
-import { searchsApi } from './api';
+import { searchsApi } from './search.api';
 
 export function* searchSaga() {
   yield takeLatest(search, function* registerHandler({ payload }) {
